@@ -1,0 +1,149 @@
+.gemdropdown1 {
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+    outline: 2px outset white;
+}
+
+.gemdropdown2 {
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    outline: 2px outset white;
+}
+
+.gemdropdown3 {
+    display: inline-block;
+    position: relative;
+    margin-left: 4px;
+    outline: 2px outset white;
+}
+
+.gembtn {
+    background-color: #ffcb7b;
+    width: 56px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background-image: url("../../images/gems/Diamond.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 75%;
+}
+
+.gembtn:hover {background-color: darkgoldenrod;}
+
+.gem-content {
+    display: none;
+    position: absolute;
+    margin-top: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    outline: 2px double #00008B;
+    z-index: 1;
+    background-color: #ffcb7b;
+    overflow-y: scroll;
+    min-height: 80px;
+    height: calc(41vh - 44px);
+    max-height: 280px;
+}
+
+.gem-content_div {
+    position: relative;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;;
+    cursor: pointer;
+    width: 160px;
+    height: 50px;
+}
+
+.gem-content_div:hover {background-color: #FFEBCD;}
+
+.gempic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /*position: absolute overrides display:block to start new line */
+    left: 0%;
+    width: 56px;
+    height: 50px;
+}
+
+.gempic img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+
+.nogem {
+    position: absolute;
+    left: 56px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.gemtext1 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 56px;
+    height: 25px;
+}
+
+.gemtext1 p {
+    font-size: 16px;
+    margin: none;
+}
+
+.gemtext2 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 56px;
+    height: 25px;
+}
+
+.gemtext2 p {
+    font-size: 12px;
+    margin: none;
+}
+
+.show {display:block;}
+
+
+
+
+
+
+
+
+
+
+
+
+#div_test {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    margin-top: 40px;
+    outline: 2px solid white;
+}
+
+#div_test1 {
+    position: absolute;
+    outline:1px solid red;
+    height: 40px;
+    width: 100px;
+}
+
+#div_test2 {
+    position: absolute;
+    outline: 1px solid black;
+    left: 50%;
+    height:40px;
+    width:100px;
+}
+

@@ -1,0 +1,129 @@
+.ring_container {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 34px);
+    display: inline-flex;
+    align-items: center;
+}
+
+.ringdrop1 {
+    display: inline-block;
+    position: absolute;
+    left: calc(1vw - 4px);
+    outline: 2px outset white;
+}
+
+.ringdrop2 {
+    display: inline-block;
+    position: absolute;
+    left: calc(1vw + 50px);
+    outline: 2px outset white;
+}
+
+.ringdrop3 {
+    display: inline-block;
+    position: absolute;
+    right: calc(1vw + 50px);
+    outline: 2px outset white;
+}
+
+.ringdrop4 {
+    display: inline-block;
+    position: absolute;
+    right: calc(1vw - 4px);
+    outline: 2px outset white;
+}
+
+.ringbtn {
+    background-color: #ffcb7b;
+    width: 50px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background-image: url("../../images/rings/No Ring.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 75%;
+}
+
+.ringbtn:hover {background-color: darkgoldenrod;}
+
+.ring-content {
+    display: none;
+    position: absolute;
+    margin-top: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    outline: 2px double #00008B;
+    z-index: 1;
+    background-color: #ffcb7b;
+    overflow-y: scroll;
+    min-height: 300px;
+    height: 45.4vh;
+}
+
+.ring-content_div {
+    position: relative;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;;
+    cursor: pointer;
+    width: 200px;
+    height: 50px;
+}
+
+.ring-content_div:hover {background-color: #FFEBCD;}
+
+.ringpic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /*position: absolute overrides display:block to start new line */
+    left: 0%;
+    width: 56px;
+    height: 50px;
+}
+
+.ringpic img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+
+.noring {
+    position: absolute;
+    left: 56px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.ringtext1 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 56px;
+    height: 25px;
+}
+
+.ringtext1 p {
+    font-size: 16px;
+    margin: none;
+}
+
+.ringtext2 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 56px;
+    height: 25px;
+}
+
+.ringtext2 p {
+    font-size: 12px;
+    margin: none;
+}
+
+.show {display: block;}
+

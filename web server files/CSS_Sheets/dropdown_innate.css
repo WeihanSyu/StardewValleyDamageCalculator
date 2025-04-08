@@ -1,0 +1,108 @@
+.innatedropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+    width: calc(100% - 2*10px);
+    outline: 2px outset white;
+}
+
+.innatebtn {
+    background-color: #ffcb7b;
+    color: black;
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+.innatebtn:hover {background-color: darkgoldenrod;}
+
+.innate-content {
+    display: none;
+    position: absolute;
+    margin-top: 6px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    outline: 2px outset black;
+    z-index: 1;
+    background-color: #ffcb7b;
+    overflow-y: scroll;
+    min-height: 66px;
+    height: calc(20vh + 8px);
+    max-height: 165px;
+    min-width: 200px;
+    width: calc(100% - 4*10px);
+}
+
+.innate-content_div1 {
+    position: relative;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+}
+
+.innate-content_div1:hover {background-color: #FFEBCD;}
+
+.innate-content_div2 {
+    position: relative;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    width: 100%;
+    height: 66px;
+}
+
+.noinnate {
+    position: absolute;
+    left: 20px;
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+}
+
+.noinnate p {
+    font-size: 18px;
+    margin: none;
+}
+
+.innatetext1 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 20px;
+    height: 30px;
+    font-size: 16px;
+}
+
+.innatetext2 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    height: 30px;
+    width: 100%;
+}
+
+.innatetext2 div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    margin-left: 6px;
+    height: 100%;
+    width: 30px;
+    outline: 2px inset white;
+}
+
+.innatetext2 div:hover {background-color: #FFEBCD;}
+
+.innatetext2 div p {
+    font-size: 14px;
+    margin: none;
+}
+
+.show {display:block;}
+
