@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="CSS_Sheets/dropdown_innate.css">
         <link rel="stylesheet" href="CSS_Sheets/dropdown_ring.css">
         <link rel="stylesheet" href="CSS_Sheets/dropdown_skill.css">
+        <link rel="stylesheet" href="CSS_Sheets/blessingStyle.css">
 
         <?php include "dbconn.php"; ?>
 
@@ -22,6 +23,7 @@
         <script src="JS_Modules/js_modules_innate.js" async></script>
         <script src="JS_Modules/js_modules_ring.js" async></script>
         <script src="JS_Modules/js_modules_skill.js" async></script>
+        <script src="JS_Modules/js_modules_blessing.js" async></script>
 
     </head>
 
@@ -126,6 +128,7 @@
             );
         ?>
 
+        <!-- Send our PHP weapon arrays to be used by any of our linked Javascript files -->
         <script type="text/javascript">
             let dagger_list = <?php echo json_encode($dagger_list); ?>;
             let sword_list = <?php echo json_encode($sword_list); ?>;
@@ -559,8 +562,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="div3_4">
 
+
+                <div class="div3_4">
+                    <div class="blessing_text">Select a Blessing</div>
+                    <div class="blessing_container">
+                        <button onclick="changeBlessing(this)" class="blessing_fangs">
+
+                        </button>
+                        <button onclick="changeBlessing(this)" class="blessing_speed">
+
+                        </button>
+                        <button onclick="changeBlessing(this)" class="blessing_luck">
+
+                        </button>
+                    </div>
                 </div>
             </div>
 

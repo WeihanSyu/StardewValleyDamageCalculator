@@ -108,7 +108,7 @@
 
 .ringtext1 p {
     font-size: 16px;
-    margin: none;
+    margin: 0;
 }
 
 .ringtext2 {
@@ -122,7 +122,7 @@
 
 .ringtext2 p {
     font-size: 12px;
-    margin: none;
+    margin: 0;
 }
 
 .show {display: block;}

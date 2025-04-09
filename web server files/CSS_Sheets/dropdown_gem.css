@@ -94,7 +94,7 @@
 
 .gemtext1 p {
     font-size: 16px;
-    margin: none;
+    margin: 0;
 }
 
 .gemtext2 {
@@ -108,7 +108,7 @@
 
 .gemtext2 p {
     font-size: 12px;
-    margin: none;
+    margin: 0;
 }
 
 .show {display:block;}
@@ -122,28 +122,4 @@
 
 
 
-
-
-#div_test {
-    position: relative;
-    width: 200px;
-    height: 40px;
-    margin-top: 40px;
-    outline: 2px solid white;
-}
-
-#div_test1 {
-    position: absolute;
-    outline:1px solid red;
-    height: 40px;
-    width: 100px;
-}
-
-#div_test2 {
-    position: absolute;
-    outline: 1px solid black;
-    left: 50%;
-    height:40px;
-    width:100px;
-}
 

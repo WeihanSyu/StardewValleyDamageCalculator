@@ -1,0 +1,98 @@
+.blessing_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    height: 40%;
+    font-size: 20px;
+}
+
+.blessing_container {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+}
+
+.blessing_fangs {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    height: 70%;
+    outline: 2px inset white;
+    background-color: #ffcb7b;
+    cursor: pointer;
+    /* Create custom properties for any ::after attribtues that we will interact with 
+    in Javascript (since pseudo classes cannot be selected by JS) */
+    --bg-image: url("../../images/blessings/Blessing_Of_Fangs.png");
+    --bg-image-opacity: 0.5;
+}
+
+.blessing_fangs::after {
+    content: '';
+    position: absolute;
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+    opacity: var(--bg-image-opacity);
+    inset: 0;
+}
+
+.blessing_fangs:hover {background-color: darkgoldenrod;}
+
+.blessing_speed {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    height: 70%;
+    margin-left: 4px;
+    outline: 2px inset white;
+    background-color: #ffcb7b;
+    cursor: pointer;
+    --bg-image: url("../../images/blessings/Blessing_Of_Speed.png");
+    --bg-image-opacity: 0.5;
+}
+
+.blessing_speed::after {
+    content: '';
+    position: absolute;
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+    opacity: var(--bg-image-opacity);
+    inset: 0;
+}
+
+.blessing_speed:hover {background-color: darkgoldenrod;}
+
+.blessing_luck {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    height: 70%;
+    margin-left: 4px;
+    outline: 2px inset white;
+    background-color: #ffcb7b;
+    cursor: pointer;
+    --bg-image: url("../../images/blessings/Blessing_Of_Luck.png");
+    --bg-image-opacity: 0.5;
+}
+
+.blessing_luck::after {
+    content: '';
+    position: absolute;
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+    opacity: var(--bg-image-opacity);
+    inset: 0;
+}
+
+.blessing_luck:hover {background-color: darkgoldenrod;}
+
+.blessing_opacity {--bg-image-opacity: 1;}

@@ -59,6 +59,7 @@
     outline: 1px solid black;
 }
 
+/* User choices for Weapon, Gem Forging, Innate Enchantment */
 .div3_1 {
     position: absolute;
     background-color: #ffcb7b;
@@ -85,6 +86,7 @@
     height: 40px;
 }
 
+/* User choices for Rings */
 .div3_2 {
     position: absolute;
     width: 43%;
@@ -100,6 +102,7 @@
     height: 34px;
 }
 
+/* User choices for Skills */
 .div3_3 {
     position: absolute;
     width: 43%;
@@ -115,6 +118,7 @@
     height: 34px;
 }
 
+/* User choice for Blessings */
 .div3_4 {
     position: absolute;
     width: 43%;
