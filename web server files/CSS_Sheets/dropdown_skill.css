@@ -27,11 +27,15 @@
     border: none;
     cursor: pointer;
     font-size: 18px;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 65%;
 }
 
 .skillbtn1:hover {background-color: darkgoldenrod;}
 
-.skillbtn2 {
+.skillbtn2_empty {
     background-color: #ffcb7b;
     width: 105px;
     height: 60px;
@@ -39,6 +43,22 @@
     font-size: 18px;
     color: rgba(0,0,0,0.5);
 }
+
+.skillbtn2 {
+    background-color: #ffcb7b;
+    width: 105px;
+    height: 60px;
+    border: none;
+    font-size: 18px;
+    color: rgba(0,0,0);
+    cursor: pointer;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 65%;
+}
+
+.skillbtn2:hover {background-color: darkgoldenrod;}
 
 .skill-content {
     display: none;
@@ -48,8 +68,21 @@
     outline: 2px groove brown;
     z-index: 1;
     background-color: #ffcb7b;
-    height: 100px;
+    height: 132px;
 }
+
+.skill-content-height {
+    height: 82px;
+}
+
+.noskill-content_div {
+    position: relative;
+    cursor: pointer;
+    width: 175px;
+    height: 30px;
+}
+
+.noskill-content_div:hover {background-color: #FFEBCD;}
 
 .skill-content_div {
     position: relative;
@@ -60,14 +93,22 @@
 
 .skill-content_div:hover {background-color: #FFEBCD;}
 
+.noskill {
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    width: 100%;
+    height: 100%;
+    font-size: 18px;
+}
+
 .skillpic {
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     left: 0%;
-    padding-left: 4px;
-    width: 54px;
+    width: 48px;
     height: 50px;
 }
 
@@ -77,13 +118,32 @@
     object-fit: contain;
 }
 
-.skilltext {
+.skilltext1 {
     display: flex;
     align-items: center;
     position: absolute;
-    left: 60px;
-    height: 50px;
-    font-size: 18px;
+    left: 48px;
+    top: 0%;
+    height: 25px;
+}
+
+.skilltext1 p {
+    font-size: 16px;
+    margin: none;
+}
+
+.skilltext2 {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 48px;
+    top: 50%;
+    height: 25px;
+}
+
+.skilltext2 p {
+    font-size: 12px;
+    margin: none;
 }
 
 .show {display:block;}

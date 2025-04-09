@@ -511,26 +511,51 @@
                         <div class="skilldrop1">
                             <button onclick="showskilldrop1()" class="skillbtn1">Level 5</button>
                             <div id="skill1" class="skill-content">
-                                <div class="skill-content_div">
+                                <div onclick="resetSkilldrop1()" class="noskill-content_div">
+                                    <div class="noskill">No Skill</div>
+                                </div>
+                                <div onclick="changeSkilldrop1(this)" class="skill-content_div">
                                     <div class="skillpic">
                                         <img src="../images/skills/Fighter.png"></img>
                                     </div>
-                                    <div class="skilltext">
-                                        Fighter
+                                    <div class="skilltext1">
+                                        <p>Fighter</p>
+                                    </div>
+                                    <div class="skilltext2">
+                                        <p>Deal 10% more damage</p>
                                     </div>
                                 </div>
-                                <div class="skill-content_div">
+                                <div onclick="changeSkilldrop1(this)" class="skill-content_div">
                                     <div class="skillpic">
                                         <img src="../images/skills/Scout.png"></img>
                                     </div>
-                                    <div class="skilltext">
-                                        Scout
+                                    <div class="skilltext1">
+                                        <p>Scout</p>
+                                    </div>
+                                    <div class="skilltext2">
+                                        <p>Critical strike chance increased by 50%</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="skilldrop2">
-                            <button class="skillbtn2">Level 10</button>
+                            <button onclick="showskilldrop2()" class="skillbtn2_empty">Level 10</button>
+                            <div id="skill2" class="skill-content">
+                                <div onclick="resetSkilldrop2()" class="noskill-content_div">
+                                    <div class="noskill">No Skill</div>
+                                </div>
+                                <div onclick="changeSkilldrop2(this)" class="skill-content_div">
+                                    <div class="skillpic">
+                                        <img src=""></img>
+                                    </div>
+                                    <div class="skilltext1">
+                                        <p></p>
+                                    </div>
+                                    <div class="skilltext2">
+                                        <p></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
