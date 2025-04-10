@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="CSS_Sheets/dropdown_ring.css">
         <link rel="stylesheet" href="CSS_Sheets/dropdown_skill.css">
         <link rel="stylesheet" href="CSS_Sheets/blessingStyle.css">
+        <link rel="stylesheet" href="CSS_Sheets/resultStyle.css">
 
         <?php include "dbconn.php"; ?>
 
@@ -24,6 +25,7 @@
         <script src="JS_Modules/js_modules_ring.js" async></script>
         <script src="JS_Modules/js_modules_skill.js" async></script>
         <script src="JS_Modules/js_modules_blessing.js" async></script>
+        <script src="JS_Modules/js_modules_result.js" async></script>
 
     </head>
 
@@ -580,18 +582,62 @@
                 </div>
             </div>
 
+
             <div class="div4">
                 <div class="result_container">
-                    <div class="result_title">
-                        <p>Results</p>
-                    </div>
+                    <div class="result_title">Results</div>
                     <div class="calculation_container">
-                        <div class="stat_div">
 
+                        <div class="stat_div_first">
+                            <div class="stat_pic" style="background-image: url(../images/results/Attack.png);"></div>
+                            <div class="stat_text">
+                                Base Dmg:
+                            </div>
+                            <div class="stat_bar_container">
+                                <div class="stat_bar" style="background-color: #C6011F;";></div>
+                            </div>
                         </div>
+
                         <div class="stat_div">
-                            
+                            <div class="stat_pic" style="background-image: url(../images/results/Crit._Power.png);"></div>
+                            <div class="stat_text">
+                                Crit. Dmg:
+                            </div>
+                            <div class="stat_bar_container">
+                                <div class="stat_bar" style="background-color: #32CD32"></div>
+                            </div>
                         </div>
+
+                        <div class="stat_div">
+                            <div class="stat_pic" style="background-image: url(../images/results/Crit._Chance.png);"></div>
+                            <div class="stat_text">
+                                Crit. Chance:
+                            </div>
+                            <div class="stat_bar_container">
+                                <div class="stat_bar" style="background-color: #00BFFF"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat_div">
+                            <div class="stat_pic" style="background-image: url(../images/results/Speed_w.png);"></div>
+                            <div class="stat_text">
+                                Speed:
+                            </div>
+                            <div class="stat_bar_container">
+                                <div class="stat_bar" style="background-color: #FFFF00"></div>
+                            </div>
+                        </div>
+
+                        <div class="stat_div_last">
+                            <div class="stat_pic_dps" style="background-image: url(../images/results/sum.png);"></div>
+                            <div class="stat_text">
+                                Dps (Dmg/s):
+                            </div>
+                            <div class="stat_bar_container">
+                                <div class="stat_bar" style="background-color: #4B0082"></div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 
