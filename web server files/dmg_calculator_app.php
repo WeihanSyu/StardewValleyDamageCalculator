@@ -565,6 +565,19 @@
             </div>
 
             <div class="div4">
+                <div class="result_container">
+                    <div class="result_title">
+                        <p>Results</p>
+                    </div>
+                    <div class="calculation_container">
+                        <div class="stat_div">
+
+                        </div>
+                        <div class="stat_div">
+                            
+                        </div>
+                    </div>
+                </div>
                 
             </div>
 
