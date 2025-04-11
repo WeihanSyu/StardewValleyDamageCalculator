@@ -22,8 +22,7 @@ window.addEventListener("click", function(event) {
 function changeDropdownName(elem) {
   var dropdown = elem.closest(".dropdown");
   var btn = dropdown.querySelector(".dropbtn");
-  var btnValue = elem.innerText;
-  btn.innerText = btnValue;
+  btn.innerText = elem.querySelector(".dropdown-content_text1").innerText;
 }
 
 // Declare Global Variables that will be used in multiple functions below

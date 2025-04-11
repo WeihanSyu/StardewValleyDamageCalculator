@@ -137,7 +137,7 @@
             let club_list = <?php echo json_encode($club_list); ?>;
         </script>
 
-
+        
         <div class="div1">
 
             <div class="div2">
@@ -162,33 +162,48 @@
                     <div class="dropdown">
                         <button onclick="showMainDropdown(); highlightMain()" class="dropbtn">Rusty Sword</button>
                         <div id="myDropdown" class="dropdown-content">  <!-- the id is simply to point to myFunction() so we can show -->
-                            
+                            <!-- I think having two divs to contain the dagger/sword/club btn is redudant. But not changing now -->
                             <div class="dropdown_2">
                                 <button id="daggerBtn" class="dropbtn_2">Daggers</button>
                                 <div class="dropdown-content_dagger">
-                                    <?php foreach($dagger_list[0] as $weapon):?>
-                                        <p onclick="changeDropdownName(this)">
-                                            <?php echo $weapon; ?>
-                                        </p>
-                                    <?php endforeach;?>
+                                    <?php for($i = 0, $length = count($dagger_list[0]); $i < $length; $i++):?>
+                                        <div onclick="changeDropdownName(this)" class="dropdown-content_text_div">
+                                            <p class="dropdown-content_text1">
+                                                <?php echo $dagger_list[0][$i]; ?>
+                                            </p>
+                                            <p class="dropdown-content_text2">
+                                                <?php echo $dagger_list[2][$i] . "-" . $dagger_list[3][$i]; ?>
+                                            </p>
+                                        </div>
+                                    <?php endfor;?>
                                 </div>
 
                                 <button id="swordBtn" class="dropbtn_2">Swords</button>
                                 <div class="dropdown-content_sword">
-                                    <?php foreach($sword_list[0] as $weapon):?>
-                                        <p onclick="changeDropdownName(this)">
-                                            <?php echo $weapon; ?>
-                                        </p>
-                                    <?php endforeach;?>
+                                    <?php for($i = 0, $length = count($sword_list[0]); $i < $length; $i++):?>
+                                        <div onclick="changeDropdownName(this)" class="dropdown-content_text_div">
+                                            <p class="dropdown-content_text1">
+                                                <?php echo $sword_list[0][$i]; ?>
+                                            </p>
+                                            <p class="dropdown-content_text2">
+                                                <?php echo $sword_list[2][$i] . "-" . $sword_list[3][$i]; ?>
+                                            </p>
+                                        </div>
+                                    <?php endfor;?>
                                 </div>
 
                                 <button id="clubBtn" class="dropbtn_2">Clubs</button>
                                 <div class="dropdown-content_club">
-                                    <?php foreach($club_list[0] as $weapon):?>
-                                        <p onclick="changeDropdownName(this)">
-                                            <?php echo $weapon; ?>
-                                        </p>
-                                    <?php endforeach;?>
+                                    <?php for($i = 0, $length = count($club_list[0]); $i < $length; $i++):?>
+                                        <div onclick="changeDropdownName(this)" class="dropdown-content_text_div">
+                                            <p class="dropdown-content_text1">
+                                                <?php echo $club_list[0][$i]; ?>
+                                            </p>
+                                            <p class="dropdown-content_text2">
+                                                <?php echo $club_list[2][$i] . "-" . $club_list[3][$i]; ?>
+                                            </p>
+                                        </div>
+                                    <?php endfor;?>
                                 </div>
                             </div>
                             
