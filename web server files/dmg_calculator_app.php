@@ -606,7 +606,7 @@
                         <div class="stat_div_first">
                             <div class="stat_pic" style="background-image: url(../images/results/Attack.png);"></div>
                             <div class="stat_text">
-                                Base Dmg:
+                                Base Dmg: 2-5
                             </div>
                             <div class="stat_bar_container">
                                 <div class="stat_bar" style="background-color: #C6011F;";></div>
@@ -616,7 +616,7 @@
                         <div class="stat_div">
                             <div class="stat_pic" style="background-image: url(../images/results/Crit._Power.png);"></div>
                             <div class="stat_text">
-                                Crit. Dmg:
+                                Crit. Dmg: 6-15
                             </div>
                             <div class="stat_bar_container">
                                 <div class="stat_bar" style="background-color: #32CD32"></div>
@@ -626,7 +626,7 @@
                         <div class="stat_div">
                             <div class="stat_pic" style="background-image: url(../images/results/Crit._Chance.png);"></div>
                             <div class="stat_text">
-                                Crit. Chance:
+                                Crit. Chance: 2%
                             </div>
                             <div class="stat_bar_container">
                                 <div class="stat_bar" style="background-color: #00BFFF"></div>
@@ -636,7 +636,7 @@
                         <div class="stat_div">
                             <div class="stat_pic" style="background-image: url(../images/results/Speed_w.png);"></div>
                             <div class="stat_text">
-                                Speed:
+                                Speed: 2.5 actions/s
                             </div>
                             <div class="stat_bar_container">
                                 <div class="stat_bar" style="background-color: #FFFF00"></div>
@@ -646,7 +646,7 @@
                         <div class="stat_div_last">
                             <div class="stat_pic_dps" style="background-image: url(../images/results/sum.png);"></div>
                             <div class="stat_text">
-                                Dps (Dmg/s):
+                                Dps (Dmg/s): 9.1
                             </div>
                             <div class="stat_bar_container">
                                 <div class="stat_bar" style="background-color: #4B0082"></div>

@@ -56,27 +56,214 @@ function removeGemdrop1_2() {
 }
 
 
-// Add events to change the gem button to be the image of whatever gem is chosen from the dropdown
+/* 
+1. Add events to change the gem button to be the image of whatever gem is chosen from the dropdown
+2. Store chosen stats into global variables so that we can use them in DPS calculation later
+3. Add the stats to results section based on what is chosen
+4. Change stat bar size based on user selected boosts
+*/
 function changeGemdrop1(elem) {
     var dropdown = elem.closest(".gemdropdown1");
     var btn = dropdown.querySelector(".gembtn");
     var img = elem.firstElementChild.firstElementChild.src;
+
+    if (elem.innerText.includes("Ruby") && !btn.style.backgroundImage.includes("Ruby")) {
+        ruby_level += 1;
+    } else if (!elem.innerText.includes("Ruby") && btn.style.backgroundImage.includes("Ruby")){
+        ruby_level -= 1;
+    }
+
+    if (elem.innerText.includes("Jade") && !btn.style.backgroundImage.includes("Jade")) {
+        jade_level += 1;
+    } else if (!elem.innerText.includes("Jade") && btn.style.backgroundImage.includes("Jade")){
+        jade_level -= 1;
+    }
+
+    if (elem.innerText.includes("Aqua") && !btn.style.backgroundImage.includes("Aqua")) {
+        aqua_level += 1;
+    } else if (!elem.innerText.includes("Aqua") && btn.style.backgroundImage.includes("Aqua")){
+        aqua_level -= 1;
+    }
+
+    if (elem.innerText.includes("Emerald") && !btn.style.backgroundImage.includes("Emerald")) {
+        emerald_level += 1;
+    } else if (!elem.innerText.includes("Emerald") && btn.style.backgroundImage.includes("Emerald")){
+        emerald_level -= 1;
+    }
+
     btn.style.backgroundImage = "url("+img+")";
+    
+    let current_wep = document.querySelector(".dropbtn").innerText;
+    let current_minDamage = 0;
+    let current_maxDamage = 0;
+
+    if (dagger_list[0].includes(current_wep)) {
+        let index = dagger_list[0].indexOf(current_wep);
+        current_minDamage = dagger_list[2][index];
+        current_maxDamage = dagger_list[3][index];
+    } else if (sword_list[0].includes(current_wep)) {
+        let index = sword_list[0].indexOf(current_wep);
+        current_minDamage = sword_list[2][index];
+        current_maxDamage = sword_list[3][index];
+    } else if (club_list[0].includes(current_wep)) {
+        let index = club_list[0].indexOf(current_wep);
+        current_minDamage = sword_list[2][index];
+        current_maxDamage = sword_list[3][index];
+    }
+
+    current_minDamage = parseInt(current_minDamage);
+    current_maxDamage = parseInt(current_maxDamage);
+    var base_dmg_avg = (current_minDamage + current_maxDamage) / 2;
+
+    dmg_bonus(current_minDamage, current_maxDamage);
+    minDamage = Math.round((minDamage + Number.EPSILON) * 10) / 10;
+    maxDamage = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
+    var new_dmg_avg = (minDamage + maxDamage) / 2;
+
+    var results_base_dmg = document.getElementsByClassName("stat_text")[0];
+    results_base_dmg.innerText = "Base Dmg: " + minDamage + "-" + maxDamage;
+
+    var attack_bar = document.getElementsByClassName("stat_bar")[0];
+    var attack_bar_width = 5;
+    var attack_bar_increase = attack_bar_width * (new_dmg_avg / base_dmg_avg);
+    attack_bar.style.setProperty('width', attack_bar_increase + '%');
 }
 
 function changeGemdrop2(elem) {
     var dropdown = elem.closest(".gemdropdown2");
     var btn = dropdown.querySelector(".gembtn");
     var img = elem.firstElementChild.firstElementChild.src;
+
+    if (elem.innerText.includes("Ruby") && !btn.style.backgroundImage.includes("Ruby")) {
+        ruby_level += 1;
+    } else if (!elem.innerText.includes("Ruby") && btn.style.backgroundImage.includes("Ruby")){
+        ruby_level -= 1;
+    }
+
+    if (elem.innerText.includes("Jade") && !btn.style.backgroundImage.includes("Jade")) {
+        jade_level += 1;
+    } else if (!elem.innerText.includes("Jade") && btn.style.backgroundImage.includes("Jade")){
+        jade_level -= 1;
+    }
+
+    if (elem.innerText.includes("Aqua") && !btn.style.backgroundImage.includes("Aqua")) {
+        aqua_level += 1;
+    } else if (!elem.innerText.includes("Aqua") && btn.style.backgroundImage.includes("Aqua")){
+        aqua_level -= 1;
+    }
+
+    if (elem.innerText.includes("Emerald") && !btn.style.backgroundImage.includes("Emerald")) {
+        emerald_level += 1;
+    } else if (!elem.innerText.includes("Emerald") && btn.style.backgroundImage.includes("Emerald")){
+        emerald_level -= 1;
+    }
+
     btn.style.backgroundImage = "url("+img+")";
+
+    let current_wep = document.querySelector(".dropbtn").innerText;
+    let current_minDamage = 0;
+    let current_maxDamage = 0;
+
+    if (dagger_list[0].includes(current_wep)) {
+        let index = dagger_list[0].indexOf(current_wep);
+        current_minDamage = dagger_list[2][index];
+        current_maxDamage = dagger_list[3][index];
+    } else if (sword_list[0].includes(current_wep)) {
+        let index = sword_list[0].indexOf(current_wep);
+        current_minDamage = sword_list[2][index];
+        current_maxDamage = sword_list[3][index];
+    } else if (club_list[0].includes(current_wep)) {
+        let index = club_list[0].indexOf(current_wep);
+        current_minDamage = sword_list[2][index];
+        current_maxDamage = sword_list[3][index];
+    }
+
+    current_minDamage = parseInt(current_minDamage);
+    current_maxDamage = parseInt(current_maxDamage);
+    var base_dmg_avg = (current_minDamage + current_maxDamage) / 2;
+
+    dmg_bonus(current_minDamage, current_maxDamage);
+    minDamage = Math.round((minDamage + Number.EPSILON) * 10) / 10;
+    maxDamage = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
+    var new_dmg_avg = (minDamage + maxDamage) / 2;
+
+    var results_base_dmg = document.getElementsByClassName("stat_text")[0];
+    results_base_dmg.innerText = "Base Dmg: " + minDamage + "-" + maxDamage;
+
+    var attack_bar = document.getElementsByClassName("stat_bar")[0];
+    var attack_bar_width = 5;
+    var attack_bar_increase = attack_bar_width * (new_dmg_avg / base_dmg_avg);
+    attack_bar.style.setProperty('width', attack_bar_increase + '%');
 }
 
 function changeGemdrop3(elem) {
     var dropdown = elem.closest(".gemdropdown3");
     var btn = dropdown.querySelector(".gembtn");
     var img = elem.firstElementChild.firstElementChild.src;
+
+    if (elem.innerText.includes("Ruby") && !btn.style.backgroundImage.includes("Ruby")) {
+        ruby_level += 1;
+    } else if (!elem.innerText.includes("Ruby") && btn.style.backgroundImage.includes("Ruby")){
+        ruby_level -= 1;
+    }
+
+    if (elem.innerText.includes("Jade") && !btn.style.backgroundImage.includes("Jade")) {
+        jade_level += 1;
+    } else if (!elem.innerText.includes("Jade") && btn.style.backgroundImage.includes("Jade")){
+        jade_level -= 1;
+    }
+
+    if (elem.innerText.includes("Aqua") && !btn.style.backgroundImage.includes("Aqua")) {
+        aqua_level += 1;
+    } else if (!elem.innerText.includes("Aqua") && btn.style.backgroundImage.includes("Aqua")){
+        aqua_level -= 1;
+    }
+
+    if (elem.innerText.includes("Emerald") && !btn.style.backgroundImage.includes("Emerald")) {
+        emerald_level += 1;
+    } else if (!elem.innerText.includes("Emerald") && btn.style.backgroundImage.includes("Emerald")){
+        emerald_level -= 1;
+    }
+
     btn.style.backgroundImage = "url("+img+")";
+
+    let current_wep = document.querySelector(".dropbtn").innerText;
+    let current_minDamage = 0;
+    let current_maxDamage = 0;
+
+    if (dagger_list[0].includes(current_wep)) {
+        let index = dagger_list[0].indexOf(current_wep);
+        current_minDamage = dagger_list[2][index];
+        current_maxDamage = dagger_list[3][index];
+    } else if (sword_list[0].includes(current_wep)) {
+        let index = sword_list[0].indexOf(current_wep);
+        current_minDamage = sword_list[2][index];
+        current_maxDamage = sword_list[3][index];
+    } else if (club_list[0].includes(current_wep)) {
+        let index = club_list[0].indexOf(current_wep);
+        current_minDamage = sword_list[2][index];
+        current_maxDamage = sword_list[3][index];
+    }
+
+    current_minDamage = parseInt(current_minDamage);
+    current_maxDamage = parseInt(current_maxDamage);
+    var base_dmg_avg = (current_minDamage + current_maxDamage) / 2;
+
+    dmg_bonus(current_minDamage, current_maxDamage);
+    minDamage = Math.round((minDamage + Number.EPSILON) * 10) / 10;
+    maxDamage = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
+    var new_dmg_avg = (minDamage + maxDamage) / 2;
+
+    var results_base_dmg = document.getElementsByClassName("stat_text")[0];
+    results_base_dmg.innerText = "Base Dmg: " + minDamage + "-" + maxDamage;
+
+    var attack_bar = document.getElementsByClassName("stat_bar")[0];
+    var attack_bar_width = 5;
+    var attack_bar_increase = attack_bar_width * (new_dmg_avg / base_dmg_avg);
+    attack_bar.style.setProperty('width', attack_bar_increase + '%');
 }
+
+
 /* 
 ID values of DOM elements must be UNIQUE within a single document.
 Thus, we can ONLY call getElementById using 'document.getElementById'. 
