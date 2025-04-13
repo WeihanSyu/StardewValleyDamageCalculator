@@ -108,7 +108,7 @@ class damage_mod:
         
 
     def attack_speed(self, emerald_level, emerald_ring, innate):
-
+        # There seems to be a soft cap of about 240 milliseconds for swords and clubs.
         # Dagger attack speeds are not listed on the wiki, but a fan-made dps calculator sets them at 8 hit/s which is 125 milliseconds.
         if self.type_ == 'dagger':
             action = 125
