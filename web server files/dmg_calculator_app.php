@@ -100,13 +100,11 @@
         ?>
 
         <?php
-            $gem_list = array(
-                "Amethyst" => "Weight: +1", 
+            $gem_list = array( 
                 "Aquamarine" => "Crit Chance: +0.046", 
                 "Emerald" => "Speed: +2", 
                 "Jade" => "Crit Power: +5", 
-                "Ruby" => "Damage: +10%", 
-                "Topaz" => "Defense: +1"
+                "Ruby" => "Damage: +10%"
             );
         ?>
 
@@ -225,7 +223,7 @@
                                     No Gem
                                 </div>
                             </div>
-                            <?php foreach(array(0,1,2,3,4,5) as $i):?>
+                            <?php foreach(array(0,1,2,3) as $i):?>
                                 <div onclick="changeGemdrop1(this)" class="gem-content_div">
                                     <?php $gem_text = "../images/gems/" . array_keys($gem_list)[$i] . ".png"; ?>
                                     <div class="gempic">
@@ -256,7 +254,7 @@
                                     No Gem
                                 </div>
                             </div>
-                            <?php foreach(array(0,1,2,3,4,5) as $i):?>
+                            <?php foreach(array(0,1,2,3) as $i):?>
                                 <div onclick="changeGemdrop2(this)" class="gem-content_div">
                                     <?php $gem_text = "../images/gems/" . array_keys($gem_list)[$i] . ".png"; ?>
                                     <div class="gempic">
@@ -287,7 +285,7 @@
                                     No Gem
                                 </div>
                             </div>
-                            <?php foreach(array(0,1,2,3,4,5) as $i):?>
+                            <?php foreach(array(0,1,2,3) as $i):?>
                                 <div onclick="changeGemdrop3(this)" class="gem-content_div">
                                     <?php $gem_text = "../images/gems/" . array_keys($gem_list)[$i] . ".png"; ?>
                                     <div class="gempic">
@@ -639,7 +637,7 @@
                                 Speed: 2.5 actions/s
                             </div>
                             <div class="stat_bar_container">
-                                <div class="stat_bar" style="background-color: #FFFF00"></div>
+                                <div class="stat_bar_speed" style="background-color: #FFFF00"></div>
                             </div>
                         </div>
 

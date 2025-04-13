@@ -127,3 +127,6 @@
 
 .show {display: block;}
 
+.disable_click {pointer-events: none;}
+
+.opacity {opacity: 0.5;}
