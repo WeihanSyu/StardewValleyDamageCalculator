@@ -146,7 +146,7 @@ function changeSkilldrop1(elem) {
     // Recalculate attack bar size for each new chosen weapon based on original bar size (5%)
     var attack_bar = document.getElementsByClassName("stat_bar")[0];
     var bar_width = 5;
-    var attack_bar_increase = bar_width * (new_dmg_avg / base_dmg_avg);
+    var attack_bar_increase = Math.min((bar_width * (new_dmg_avg / base_dmg_avg)),100);
     attack_bar.style.setProperty('width', attack_bar_increase + '%');
 
     // Call our chd_bonus function to apply any changes from other sections to the critical power
@@ -161,7 +161,7 @@ function changeSkilldrop1(elem) {
     
     // Recalculate crit dmg bar size
     var critdmg_bar = document.getElementsByClassName("stat_bar")[1];
-    var critdmg_bar_increase = bar_width * (new_crit_damage_avg / base_crit_damage_avg);
+    var critdmg_bar_increase = Math.min((bar_width * (new_crit_damage_avg / base_crit_damage_avg)),100);
     critdmg_bar.style.setProperty('width', critdmg_bar_increase + '%');
 
     // Call our chc_bonus function to apply any changes to crit chance
@@ -169,7 +169,7 @@ function changeSkilldrop1(elem) {
     
     // Recalculate crit chance bar size 
     var critchance_bar = document.getElementsByClassName("stat_bar")[2];
-    var critchance_bar_increase = bar_width * (chc / current_crit_chance);
+    var critchance_bar_increase = Math.min((bar_width * (chc / current_crit_chance)),100);
     critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
     // Change crit chance text in results section to the modified crit chance if any
@@ -183,7 +183,7 @@ function changeSkilldrop1(elem) {
     // Dps section
     dps_calc();
     var dps_bar = document.getElementsByClassName("stat_bar")[3];
-    var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+    var dps_bar_increase = Math.min((bar_width * (damage_per_second / default_dps)), 100);
     dps_bar.style.setProperty('width', dps_bar_increase + '%');
 
     damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
@@ -267,7 +267,7 @@ function resetSkilldrop1() {
 
   var attack_bar = document.getElementsByClassName("stat_bar")[0];
   var bar_width = 5;
-  var attack_bar_increase = bar_width * (new_dmg_avg / base_dmg_avg);
+  var attack_bar_increase = Math.min((bar_width * (new_dmg_avg / base_dmg_avg)),100);
   attack_bar.style.setProperty('width', attack_bar_increase + '%');
 
   // Crit Damage section
@@ -280,13 +280,13 @@ function resetSkilldrop1() {
   results_crit_dmg.innerText = "Crit. Dmg: " + chd_min_round + "-" + chd_max_round;
 
   var critdmg_bar = document.getElementsByClassName("stat_bar")[1];
-  var critdmg_bar_increase = bar_width * (new_crit_damage_avg / base_crit_damage_avg);
+  var critdmg_bar_increase = Math.min((bar_width * (new_crit_damage_avg / base_crit_damage_avg)),100);
   critdmg_bar.style.setProperty('width', critdmg_bar_increase + '%');
 
   // Crit Chance section
   chc_bonus(wep_type, current_crit_chance);
   var critchance_bar = document.getElementsByClassName("stat_bar")[2];
-  var critchance_bar_increase = bar_width * (chc / current_crit_chance);
+  var critchance_bar_increase = Math.min((bar_width * (chc / current_crit_chance)),100);
   critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
   chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
@@ -299,7 +299,7 @@ function resetSkilldrop1() {
   // Dps section
   dps_calc();
   var dps_bar = document.getElementsByClassName("stat_bar")[3];
-  var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+  var dps_bar_increase = Math.min((bar_width * (damage_per_second / default_dps)), 100);
   dps_bar.style.setProperty('width', dps_bar_increase + '%');
 
   damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
@@ -380,7 +380,7 @@ function changeSkilldrop2(elem) {
 
   var attack_bar = document.getElementsByClassName("stat_bar")[0];
   var bar_width = 5;
-  var attack_bar_increase = bar_width * (new_dmg_avg / base_dmg_avg);
+  var attack_bar_increase = Math.min((bar_width * (new_dmg_avg / base_dmg_avg)),100);
   attack_bar.style.setProperty('width', attack_bar_increase + '%');
 
   // Crit Damage section
@@ -393,13 +393,13 @@ function changeSkilldrop2(elem) {
   results_crit_dmg.innerText = "Crit. Dmg: " + chd_min_round + "-" + chd_max_round;
 
   var critdmg_bar = document.getElementsByClassName("stat_bar")[1];
-  var critdmg_bar_increase = bar_width * (new_crit_damage_avg / base_crit_damage_avg);
+  var critdmg_bar_increase = Math.min((bar_width * (new_crit_damage_avg / base_crit_damage_avg)),100);
   critdmg_bar.style.setProperty('width', critdmg_bar_increase + '%');
 
   // Crit Chance section
   chc_bonus(wep_type, current_crit_chance);
   var critchance_bar = document.getElementsByClassName("stat_bar")[2];
-  var critchance_bar_increase = bar_width * (chc / current_crit_chance);
+  var critchance_bar_increase = Math.min((bar_width * (chc / current_crit_chance)),100);
   critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
   chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
@@ -412,7 +412,7 @@ function changeSkilldrop2(elem) {
   // Dps section
   dps_calc();
   var dps_bar = document.getElementsByClassName("stat_bar")[3];
-  var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+  var dps_bar_increase = Math.min((bar_width * (damage_per_second / default_dps)), 100);
   dps_bar.style.setProperty('width', dps_bar_increase + '%');
 
   damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
@@ -486,7 +486,7 @@ function resetSkilldrop2() {
 
   var attack_bar = document.getElementsByClassName("stat_bar")[0];
   var bar_width = 5;
-  var attack_bar_increase = bar_width * (new_dmg_avg / base_dmg_avg);
+  var attack_bar_increase = Math.min((bar_width * (new_dmg_avg / base_dmg_avg)),100);
   attack_bar.style.setProperty('width', attack_bar_increase + '%');
 
   // Crit Damage section
@@ -499,13 +499,13 @@ function resetSkilldrop2() {
   results_crit_dmg.innerText = "Crit. Dmg: " + chd_min_round + "-" + chd_max_round;
 
   var critdmg_bar = document.getElementsByClassName("stat_bar")[1];
-  var critdmg_bar_increase = bar_width * (new_crit_damage_avg / base_crit_damage_avg);
+  var critdmg_bar_increase = Math.min((bar_width * (new_crit_damage_avg / base_crit_damage_avg)),100);
   critdmg_bar.style.setProperty('width', critdmg_bar_increase + '%');
 
   // Crit Chance section
   chc_bonus(wep_type, current_crit_chance);
   var critchance_bar = document.getElementsByClassName("stat_bar")[2];
-  var critchance_bar_increase = bar_width * (chc / current_crit_chance);
+  var critchance_bar_increase = Math.min((bar_width * (chc / current_crit_chance)),100);
   critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
   chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
@@ -518,7 +518,7 @@ function resetSkilldrop2() {
   // Dps section
   dps_calc();
   var dps_bar = document.getElementsByClassName("stat_bar")[3];
-  var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+  var dps_bar_increase = Math.min((bar_width * (damage_per_second / default_dps)), 100);
   dps_bar.style.setProperty('width', dps_bar_increase + '%');
 
   damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;

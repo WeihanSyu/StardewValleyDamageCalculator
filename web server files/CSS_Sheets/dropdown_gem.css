@@ -1,28 +1,28 @@
 .gemdropdown1 {
     display: inline-block;
     position: relative;
-    margin-left: 10px;
+    margin-left: 12.5px;
     outline: 2px outset white;
 }
 
 .gemdropdown2 {
     display: inline-block;
     position: relative;
-    margin-left: 4px;
+    margin-left: 4.5px;
     outline: 2px outset white;
 }
 
 .gemdropdown3 {
     display: inline-block;
     position: relative;
-    margin-left: 4px;
+    margin-left: 4.5px;
     outline: 2px outset white;
 }
 
 .gembtn {
     background-color: #ffcb7b;
-    width: 56px;
-    height: 50px;
+    width: 70px;
+    height: 62.5px;
     border: none;
     cursor: pointer;
     background-image: url("../../images/gems/Diamond.png");
@@ -36,15 +36,15 @@
 .gem-content {
     display: none;
     position: absolute;
-    margin-top: 6px;
+    margin-top: 7.5px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     outline: 2px double #00008B;
     z-index: 1;
     background-color: #ffcb7b;
     overflow-y: scroll;
-    min-height: 80px;
-    height: calc(41vh - 44px);
-    max-height: 280px;
+    min-height: 100px;
+    height: calc(41vh - 55px);
+    max-height: 350px;
 }
 
 .gem-content_div {
@@ -52,8 +52,8 @@
     border-top: 1px solid white;
     border-bottom: 1px solid white;;
     cursor: pointer;
-    width: 160px;
-    height: 50px;
+    width: 200px;
+    height: 62.5px;
 }
 
 .gem-content_div:hover {background-color: #FFEBCD;}
@@ -64,8 +64,8 @@
     align-items: center;
     position: absolute; /*position: absolute overrides display:block to start new line */
     left: 0%;
-    width: 56px;
-    height: 50px;
+    width: 70px;
+    height: 62.5px;
 }
 
 .gempic img {
@@ -76,11 +76,11 @@
 
 .nogem {
     position: absolute;
-    left: 56px;
-    height: 50px;
+    left: 70px;
+    height: 62.5px;
     display: inline-flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .gemtext1 {
@@ -88,12 +88,12 @@
     align-items: center;
     position: absolute;
     top: 0%;
-    left: 56px;
-    height: 25px;
+    left: 70px;
+    height: 31.25px;
 }
 
 .gemtext1 p {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
 }
 
@@ -102,12 +102,12 @@
     align-items: center;
     position: absolute;
     top: 50%;
-    left: 56px;
-    height: 25px;
+    left: 70px;
+    height: 31.25px;
 }
 
 .gemtext2 p {
-    font-size: 12px;
+    font-size: 15px;
     margin: 0;
 }
 

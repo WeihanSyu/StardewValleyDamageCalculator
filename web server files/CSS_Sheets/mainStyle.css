@@ -1,11 +1,11 @@
 .div1 {
     position: absolute;
-    min-width: 800px;
+    min-width: 1000px;
     width: 90vw;
-    max-width: 1000px;
-    min-height: 500px;
+    max-width: 1250px;
+    min-height: 625px;
     height: 81.5vh;
-    max-height: 650px;
+    max-height: 812.5px;
     top: 50%;   /* make the starting point of the container 50% from the top of its own container (the entire page - if uncontained) */ 
     left: 50%;
     transform: translate(-50%, -50%);   /* Translate the container by its own width and height. 50% effectively center it */
@@ -71,17 +71,17 @@
 
 .div3_1_1 {
     position: relative;
-    height: 70px;
+    height: 87.5px;
 }
 
 .div3_1_2 {
     position: relative;
-    height: 40px;
+    height: 50px;
 }
 
 .div3_1_3 {
     position: relative;
-    height: 40px;
+    height: 50px;
 }
 
 /* User choices for Rings */
@@ -97,7 +97,7 @@
 
 .div3_2_1 {
     position: relative;
-    height: 34px;
+    height: 42.5px;
 }
 
 /* User choices for Skills */
@@ -113,7 +113,7 @@
 
 .div3_3_1 {
     position: relative;
-    height: 34px;
+    height: 42.5px;
 }
 
 /* User choice for Blessings */
@@ -136,36 +136,36 @@
 }
 
 .p1 {
-    font-size: 30px;
-    padding-left: 20px;
+    font-size: 38px;
+    padding-left: 25px;
 }
 
 .p2 {
-    font-size: 22px;
+    font-size: 27.5px;
     margin: 0;
-    padding-top: 22px;
-    padding-left: 20px;
+    padding-top: 27.5px;
+    padding-left: 25px;
 }
 
 .p3 {
-    font-size: 22px;
-    padding-left: 20px;
-    margin-top: 22px;
+    font-size: 27.5px;
+    padding-left: 25px;
+    margin-top: 27.5px;
 }
 
 .p4 {
-    font-size: 22px;
+    font-size: 27.5px;
     margin: 0;
-    padding-top: 10px;
-    padding-left: 20px;
+    padding-top: 12.5px;
+    padding-left: 25px;
 }
 
-@media (max-width: 810px) {
+@media (max-width: 1012.5px) {
     .div1 {
-        min-width: 400px;
+        min-width: 500px;
         width: auto;
         float: none;
-        height: 500px;
+        height: 625px;
         outline: 2px solid green;
     } .div3 {
         width: 100%;
@@ -176,6 +176,6 @@
     } .div2_1 {
         width: 60%;
     } .p1 {
-        font-size: 20px;
+        font-size: 25px;
     }
 }

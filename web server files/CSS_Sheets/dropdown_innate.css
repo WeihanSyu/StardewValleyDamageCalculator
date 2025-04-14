@@ -1,8 +1,8 @@
 .innatedropdown {
     position: relative;
     display: inline-block;
-    margin-left: 10px;
-    width: calc(100% - 2*10px);
+    margin-left: 12.5px;
+    width: calc(100% - 2*12.5px);
     outline: 2px outset white;
 }
 
@@ -10,8 +10,8 @@
     background-color: #ffcb7b;
     color: black;
     width: 100%;
-    padding: 16px;
-    font-size: 18px;
+    padding: 20px;
+    font-size: 22.5px;
     border: none;
     cursor: pointer;
 }
@@ -21,17 +21,17 @@
 .innate-content {
     display: none;
     position: absolute;
-    margin-top: 6px;
+    margin-top: 7.5px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     outline: 2px outset black;
     z-index: 1;
     background-color: #ffcb7b;
     overflow-y: scroll;
-    min-height: 66px;
-    height: calc(20vh + 8px);
-    max-height: 165px;
-    min-width: 200px;
-    width: calc(100% - 4*10px);
+    min-height: 82.5px;
+    height: calc(20vh + 10px);
+    max-height: 206.25px;
+    min-width: 250px;
+    width: calc(100% - 4*12.5px);
 }
 
 .innate-content_div1 {
@@ -40,7 +40,7 @@
     border-bottom: 1px solid white;
     cursor: pointer;
     width: 100%;
-    height: 40px;
+    height: 50px;
 }
 
 .innate-content_div1:hover {background-color: #FFEBCD;}
@@ -50,19 +50,19 @@
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     width: 100%;
-    height: 66px;
+    height: 82.5px;
 }
 
 .noinnate {
     position: absolute;
-    left: 20px;
+    left: 25px;
     height: 100%;
     display: inline-flex;
     align-items: center;
 }
 
 .noinnate p {
-    font-size: 18px;
+    font-size: 22.5px;
     margin: 0;
 }
 
@@ -71,9 +71,9 @@
     align-items: center;
     position: absolute;
     top: 0%;
-    left: 20px;
-    height: 30px;
-    font-size: 16px;
+    left: 25px;
+    height: 37.5px;
+    font-size: 20px;
 }
 
 .innatetext2 {
@@ -81,7 +81,7 @@
     align-items: center;
     position: absolute;
     top: 50%;
-    height: 30px;
+    height: 37.5px;
     width: 100%;
 }
 
@@ -91,16 +91,16 @@
     justify-content: center;
     position: relative;
     cursor: pointer;
-    margin-left: 6px;
+    margin-left: 7.5px;
     height: 100%;
-    width: 30px;
+    width: 37.5px;
     outline: 2px inset white;
 }
 
 .innatetext2 div:hover {background-color: #FFEBCD;}
 
 .innatetext2 div p {
-    font-size: 14px;
+    font-size: 17.5px;
     margin: 0;
 }
 

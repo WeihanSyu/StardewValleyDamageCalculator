@@ -182,7 +182,7 @@
                 <div class="div2_2">
                     <div class="div2_2_1">
                         <form action="/dmg_calculator_app.php">
-                            <input onclick="window.location.reload();" type="reset" value="Reset">
+                            <input onclick="window.location.reload();" type="reset" value="Reset" style="font-size: 20px;">
                         </form>
                     </div>
                 </div>

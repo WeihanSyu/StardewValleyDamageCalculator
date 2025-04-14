@@ -10,7 +10,7 @@ function changeBlessing(elem) {
     var btn_luck = document.querySelector('.blessing_luck');
 
     // Default font is too large for two sentences so decrease size upon clicking
-    blessing_text.style.setProperty('font-size', '18px');
+    blessing_text.style.setProperty('font-size', '22px');
 
     if (btn_property.getPropertyValue('--bg-image').includes('Fangs')) {
         elem.classList.toggle("blessing_opacity");
@@ -104,7 +104,7 @@ function changeBlessing(elem) {
     // Crit Chance section
     chc_bonus(wep_type, current_crit_chance);
     var critchance_bar = document.getElementsByClassName("stat_bar")[2];
-    var critchance_bar_increase = bar_width * (chc / current_crit_chance);
+    var critchance_bar_increase = Math.min((bar_width * (chc / current_crit_chance)),100);
     critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
     chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
@@ -129,7 +129,7 @@ function changeBlessing(elem) {
     // Dps section
     dps_calc();
     var dps_bar = document.getElementsByClassName("stat_bar")[3];
-    var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+    var dps_bar_increase = Math.min((bar_width * (damage_per_second / default_dps)), 100);
     dps_bar.style.setProperty('width', dps_bar_increase + '%');
 
     damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
