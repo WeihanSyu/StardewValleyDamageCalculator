@@ -1,6 +1,9 @@
 // Add function to show the innate enchantment dropdown menu upon click
 function showInnateDropdown() {
-    document.getElementById("myinnate").classList.toggle("show");
+    let wep_name = document.querySelector(".dropbtn").innerText;
+    if (!wep_name.includes("Galaxy") && !wep_name.includes("Infinity")) {
+        document.getElementById("myinnate").classList.toggle("show");
+    }
 }
 
 // Add event to close the innate dropdown menu if user clicks off of it

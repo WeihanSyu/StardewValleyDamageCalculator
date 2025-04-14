@@ -170,6 +170,7 @@
             let dagger_list = <?php echo json_encode($dagger_list); ?>;
             let sword_list = <?php echo json_encode($sword_list); ?>;
             let club_list = <?php echo json_encode($club_list); ?>;
+            let all_weapons = <?php echo json_encode($all_weapons); ?>;
         </script>
 
         

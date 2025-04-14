@@ -31,6 +31,21 @@ function changeDropdownName(elem) {
   var btn = dropdown.querySelector(".dropbtn");
   btn.innerText = elem.querySelector(".dropdown-content_text1").innerText;
 
+  // If a Galaxy or Infinity weapon is selected, we need to clear the innate enchantments section.
+  let innatebtn = document.querySelector(".innatebtn");
+  innatebtn.classList.remove("disable_click");
+  innatebtn.classList.remove("opacity");
+  if (btn.innerText.includes("Galaxy") || btn.innerText.includes("Infinity")) {
+    innate_attack = 0;
+    innate_crit_power = 0;
+    innate_crit_chance = 0;
+    innate_speed = 0;
+
+    innatebtn.innerText = 'No Enchantment';
+    innatebtn.classList.add("disable_click");
+    innatebtn.classList.add("opacity");
+  }
+
   // Get the default - unmodified weapon stats and store it in integer variables
   let current_wep = document.querySelector(".dropbtn").innerText;
   let wep_type = '';
