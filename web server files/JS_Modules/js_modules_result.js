@@ -132,7 +132,7 @@ function attack_speed(wep, speed) {
     action_per_second = 1000 / action;
 }
 
-function dps_calc(min, max, crit_chance, crit_min, crit_max, action_s) {
+function dps_calc() {
     final_damage_min = ( (chd_min - minDamage) * chc ) + minDamage;
     final_damage_max = ( (chd_max - maxDamage) * chc ) + maxDamage;
     damage_per_second = (final_damage_min + final_damage_max) / 2 * action_per_second; 

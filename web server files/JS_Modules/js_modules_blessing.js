@@ -52,29 +52,54 @@ function changeBlessing(elem) {
     // Get unmodified current weapon stats
     let current_wep = document.querySelector(".dropbtn").innerText;
     let wep_type = '';
+    let current_minDamage = 0;
+    let current_maxDamage = 0;
+    let current_crit_power = 0;
     let current_crit_chance = 0;
     let current_speed = 0;
+    let default_dps = 0;
 
     if (dagger_list[0].includes(current_wep)) {
         let index = dagger_list[0].indexOf(current_wep);
         wep_type = 'dagger';
+        current_minDamage = dagger_list[2][index];
+        current_maxDamage = dagger_list[3][index];
+        current_crit_power = dagger_list[5][index];
         current_crit_chance = dagger_list[4][index];
         current_speed = dagger_list[6][index];
+        default_dps = dagger_list[7][index];
     } else if (sword_list[0].includes(current_wep)) {
         let index = sword_list[0].indexOf(current_wep);
         wep_type = 'sword';
+        current_minDamage = sword_list[2][index];
+        current_maxDamage = sword_list[3][index];
+        current_crit_power = sword_list[5][index];
         current_crit_chance = sword_list[4][index];
         current_speed = sword_list[6][index];
+        default_dps = sword_list[7][index];
     } else if (club_list[0].includes(current_wep)) {
         let index = club_list[0].indexOf(current_wep);
         wep_type = 'club';
+        current_minDamage = club_list[2][index];
+        current_maxDamage = club_list[3][index];
+        current_crit_power = club_list[5][index];
         current_crit_chance = club_list[4][index];
         current_speed = club_list[6][index];
+        default_dps = club_list[7][index];
     }
 
+    current_minDamage = parseInt(current_minDamage);
+    current_maxDamage = parseInt(current_maxDamage);
+    current_crit_power = parseInt(current_crit_power);
     current_crit_chance = parseFloat(current_crit_chance);
     current_speed = parseInt(current_speed);
     var bar_width = 5;
+
+    // Attack Damage section
+    dmg_bonus(current_minDamage, current_maxDamage);
+
+    // Crit Damage section
+    chd_bonus(minDamage, maxDamage, current_crit_power);
 
     // Crit Chance section
     chc_bonus(wep_type, current_crit_chance);
@@ -82,9 +107,9 @@ function changeBlessing(elem) {
     var critchance_bar_increase = bar_width * (chc / current_crit_chance);
     critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
-    chc = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
+    chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
     var results_crit_chance = document.getElementsByClassName("stat_text")[2];
-    results_crit_chance.innerText = "Crit. Chance: " + chc + "%";
+    results_crit_chance.innerText = "Crit. Chance: " + chc_round + "%";
 
     // Attack speed section
     attack_speed(wep_type, current_speed);
@@ -97,10 +122,17 @@ function changeBlessing(elem) {
         speed_bar.style.setProperty('width', speed_bar_increase + '%');
     }
 
-    action_per_second = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
+    action_per_second_round = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
     var results_speed = document.getElementsByClassName("stat_text")[3];
-    results_speed.innerText = "Speed: " + action_per_second + " actions/s";
+    results_speed.innerText = "Speed: " + action_per_second_round + " actions/s";
 
     // Dps section
-    
+    dps_calc();
+    var dps_bar = document.getElementsByClassName("stat_bar")[3];
+    var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+    dps_bar.style.setProperty('width', dps_bar_increase + '%');
+
+    damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
+    var results_dps = document.getElementsByClassName("stat_text")[4];
+    results_dps.innerText = "Dps (Dmg/s): " + damage_per_second;
 }

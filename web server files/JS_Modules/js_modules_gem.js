@@ -103,6 +103,7 @@ function changeGemdrop1(elem) {
     let current_crit_power = 0;
     let current_crit_chance = 0;
     let current_speed = 0;
+    let default_dps = 0;
 
     if (dagger_list[0].includes(current_wep)) {
         let index = dagger_list[0].indexOf(current_wep);
@@ -112,6 +113,7 @@ function changeGemdrop1(elem) {
         current_crit_power = dagger_list[5][index];
         current_crit_chance = dagger_list[4][index];
         current_speed = dagger_list[6][index];
+        default_dps = dagger_list[7][index];
     } else if (sword_list[0].includes(current_wep)) {
         let index = sword_list[0].indexOf(current_wep);
         wep_type = 'sword';
@@ -120,6 +122,7 @@ function changeGemdrop1(elem) {
         current_crit_power = sword_list[5][index];
         current_crit_chance = sword_list[4][index];
         current_speed = sword_list[6][index];
+        default_dps = sword_list[7][index];
     } else if (club_list[0].includes(current_wep)) {
         let index = club_list[0].indexOf(current_wep);
         wep_type = 'club';
@@ -128,6 +131,7 @@ function changeGemdrop1(elem) {
         current_crit_power = club_list[5][index];
         current_crit_chance = club_list[4][index];
         current_speed = club_list[6][index];
+        default_dps = club_list[7][index];
     }
 
     current_minDamage = parseInt(current_minDamage);
@@ -141,13 +145,13 @@ function changeGemdrop1(elem) {
 
     // Call our dmg_bonus function to apply any changes from other sections to the base dmg
     dmg_bonus(current_minDamage, current_maxDamage);
-    minDamage = Math.round((minDamage + Number.EPSILON) * 10) / 10;
-    maxDamage = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
+    minDamage_round = Math.round((minDamage + Number.EPSILON) * 10) / 10;
+    maxDamage_round = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
     var new_dmg_avg = (minDamage + maxDamage) / 2;
 
     // Change the base dmg text in results section to the modified base damage from above
     var results_base_dmg = document.getElementsByClassName("stat_text")[0];
-    results_base_dmg.innerText = "Base Dmg: " + minDamage + "-" + maxDamage;
+    results_base_dmg.innerText = "Base Dmg: " + minDamage_round + "-" + maxDamage_round;
 
     // Recalculate attack bar size for each new chosen weapon based on original bar size (5%)
     var attack_bar = document.getElementsByClassName("stat_bar")[0];
@@ -157,13 +161,13 @@ function changeGemdrop1(elem) {
 
     // Call our chd_bonus function to apply any changes from other sections to the critical power
     chd_bonus(minDamage, maxDamage, current_crit_power);
-    chd_min = Math.round((chd_min + Number.EPSILON) * 10) / 10;
-    chd_max = Math.round((chd_max + Number.EPSILON) * 10) / 10;
+    chd_min_round = Math.round((chd_min + Number.EPSILON) * 10) / 10;
+    chd_max_round = Math.round((chd_max + Number.EPSILON) * 10) / 10;
     var new_crit_damage_avg = (chd_min + chd_max) / 2;
 
     // Change the crit dmg text in results section to the modified crit damage if any
     var results_crit_dmg = document.getElementsByClassName("stat_text")[1];
-    results_crit_dmg.innerText = "Crit. Dmg: " + chd_min + "-" + chd_max;
+    results_crit_dmg.innerText = "Crit. Dmg: " + chd_min_round + "-" + chd_max_round;
     
     // Recalculate crit dmg bar size
     var critdmg_bar = document.getElementsByClassName("stat_bar")[1];
@@ -179,9 +183,9 @@ function changeGemdrop1(elem) {
     critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
     // Change crit chance text in results section to the modified crit chance if any
-    chc = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
+    chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
     var results_crit_chance = document.getElementsByClassName("stat_text")[2];
-    results_crit_chance.innerText = "Crit. Chance: " + chc + "%";
+    results_crit_chance.innerText = "Crit. Chance: " + chc_round + "%";
 
     // Call our attack_speed function to apply any changes to speed
     attack_speed(wep_type, current_speed);
@@ -197,9 +201,19 @@ function changeGemdrop1(elem) {
     }
 
     // Change speed text in results section to match any changes
-    action_per_second = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
+    action_per_second_round = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
     var results_speed = document.getElementsByClassName("stat_text")[3];
-    results_speed.innerText = "Speed: " + action_per_second + " actions/s";
+    results_speed.innerText = "Speed: " + action_per_second_round + " actions/s";
+
+    // Dps section
+    dps_calc();
+    var dps_bar = document.getElementsByClassName("stat_bar")[3];
+    var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+    dps_bar.style.setProperty('width', dps_bar_increase + '%');
+
+    damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
+    var results_dps = document.getElementsByClassName("stat_text")[4];
+    results_dps.innerText = "Dps (Dmg/s): " + damage_per_second;
 }
 
 function changeGemdrop2(elem) {
@@ -240,6 +254,7 @@ function changeGemdrop2(elem) {
     let current_crit_power = 0;
     let current_crit_chance = 0;
     let current_speed = 0;
+    let default_dps = 0;
 
     if (dagger_list[0].includes(current_wep)) {
         let index = dagger_list[0].indexOf(current_wep);
@@ -249,6 +264,7 @@ function changeGemdrop2(elem) {
         current_crit_power = dagger_list[5][index];
         current_crit_chance = dagger_list[4][index];
         current_speed = dagger_list[6][index];
+        default_dps = dagger_list[7][index];
     } else if (sword_list[0].includes(current_wep)) {
         let index = sword_list[0].indexOf(current_wep);
         wep_type = 'sword';
@@ -257,6 +273,7 @@ function changeGemdrop2(elem) {
         current_crit_power = sword_list[5][index];
         current_crit_chance = sword_list[4][index];
         current_speed = sword_list[6][index];
+        default_dps = sword_list[7][index];
     } else if (club_list[0].includes(current_wep)) {
         let index = club_list[0].indexOf(current_wep);
         wep_type = 'club';
@@ -265,6 +282,7 @@ function changeGemdrop2(elem) {
         current_crit_power = club_list[5][index];
         current_crit_chance = club_list[4][index];
         current_speed = club_list[6][index];
+        default_dps = club_list[7][index];
     }
 
     current_minDamage = parseInt(current_minDamage);
@@ -278,12 +296,12 @@ function changeGemdrop2(elem) {
 
     // Base Damage section
     dmg_bonus(current_minDamage, current_maxDamage);
-    minDamage = Math.round((minDamage + Number.EPSILON) * 10) / 10;
-    maxDamage = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
+    minDamage_round = Math.round((minDamage + Number.EPSILON) * 10) / 10;
+    maxDamage_round = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
     var new_dmg_avg = (minDamage + maxDamage) / 2;
 
     var results_base_dmg = document.getElementsByClassName("stat_text")[0];
-    results_base_dmg.innerText = "Base Dmg: " + minDamage + "-" + maxDamage;
+    results_base_dmg.innerText = "Base Dmg: " + minDamage_round + "-" + maxDamage_round;
 
     var attack_bar = document.getElementsByClassName("stat_bar")[0];
     var bar_width = 5;
@@ -292,12 +310,12 @@ function changeGemdrop2(elem) {
 
     // Crit Damage section
     chd_bonus(minDamage, maxDamage, current_crit_power);
-    chd_min = Math.round((chd_min + Number.EPSILON) * 10) / 10;
-    chd_max = Math.round((chd_max + Number.EPSILON) * 10) / 10;
+    chd_min_round = Math.round((chd_min + Number.EPSILON) * 10) / 10;
+    chd_max_round = Math.round((chd_max + Number.EPSILON) * 10) / 10;
     var new_crit_damage_avg = (chd_min + chd_max) / 2;
 
     var results_crit_dmg = document.getElementsByClassName("stat_text")[1];
-    results_crit_dmg.innerText = "Crit. Dmg: " + chd_min + "-" + chd_max;
+    results_crit_dmg.innerText = "Crit. Dmg: " + chd_min_round + "-" + chd_max_round;
 
     var critdmg_bar = document.getElementsByClassName("stat_bar")[1];
     var critdmg_bar_increase = bar_width * (new_crit_damage_avg / base_crit_damage_avg);
@@ -309,9 +327,9 @@ function changeGemdrop2(elem) {
     var critchance_bar_increase = bar_width * (chc / current_crit_chance);
     critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
-    chc = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
+    chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
     var results_crit_chance = document.getElementsByClassName("stat_text")[2];
-    results_crit_chance.innerText = "Crit. Chance: " + chc + "%";
+    results_crit_chance.innerText = "Crit. Chance: " + chc_round + "%";
 
     // Attack speed section
     attack_speed(wep_type, current_speed);
@@ -324,9 +342,19 @@ function changeGemdrop2(elem) {
         speed_bar.style.setProperty('width', speed_bar_increase + '%');
     }
 
-    action_per_second = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
+    action_per_second_round = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
     var results_speed = document.getElementsByClassName("stat_text")[3];
-    results_speed.innerText = "Speed: " + action_per_second + " actions/s";
+    results_speed.innerText = "Speed: " + action_per_second_round + " actions/s";
+
+    // Dps section
+    dps_calc();
+    var dps_bar = document.getElementsByClassName("stat_bar")[3];
+    var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+    dps_bar.style.setProperty('width', dps_bar_increase + '%');
+
+    damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
+    var results_dps = document.getElementsByClassName("stat_text")[4];
+    results_dps.innerText = "Dps (Dmg/s): " + damage_per_second;
 }
 
 function changeGemdrop3(elem) {
@@ -367,6 +395,7 @@ function changeGemdrop3(elem) {
     let current_crit_power = 0;
     let current_crit_chance = 0;
     let current_speed = 0;
+    let default_dps = 0;
 
     if (dagger_list[0].includes(current_wep)) {
         let index = dagger_list[0].indexOf(current_wep);
@@ -376,6 +405,7 @@ function changeGemdrop3(elem) {
         current_crit_power = dagger_list[5][index];
         current_crit_chance = dagger_list[4][index];
         current_speed = dagger_list[6][index];
+        default_dps = dagger_list[7][index];
     } else if (sword_list[0].includes(current_wep)) {
         let index = sword_list[0].indexOf(current_wep);
         wep_type = 'sword';
@@ -384,6 +414,7 @@ function changeGemdrop3(elem) {
         current_crit_power = sword_list[5][index];
         current_crit_chance = sword_list[4][index];
         current_speed = sword_list[6][index];
+        default_dps = sword_list[7][index];
     } else if (club_list[0].includes(current_wep)) {
         let index = club_list[0].indexOf(current_wep);
         wep_type = 'club';
@@ -392,6 +423,7 @@ function changeGemdrop3(elem) {
         current_crit_power = club_list[5][index];
         current_crit_chance = club_list[4][index];
         current_speed = club_list[6][index];
+        default_dps = club_list[7][index];
     }
 
     current_minDamage = parseInt(current_minDamage);
@@ -405,12 +437,12 @@ function changeGemdrop3(elem) {
 
     // Base Damage section
     dmg_bonus(current_minDamage, current_maxDamage);
-    minDamage = Math.round((minDamage + Number.EPSILON) * 10) / 10;
-    maxDamage = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
+    minDamage_round = Math.round((minDamage + Number.EPSILON) * 10) / 10;
+    maxDamage_round = Math.round((maxDamage + Number.EPSILON) * 10) / 10;
     var new_dmg_avg = (minDamage + maxDamage) / 2;
 
     var results_base_dmg = document.getElementsByClassName("stat_text")[0];
-    results_base_dmg.innerText = "Base Dmg: " + minDamage + "-" + maxDamage;
+    results_base_dmg.innerText = "Base Dmg: " + minDamage_round + "-" + maxDamage_round;
 
     var attack_bar = document.getElementsByClassName("stat_bar")[0];
     var bar_width = 5;
@@ -419,12 +451,12 @@ function changeGemdrop3(elem) {
 
     // Crit Damage section
     chd_bonus(minDamage, maxDamage, current_crit_power);
-    chd_min = Math.round((chd_min + Number.EPSILON) * 10) / 10;
-    chd_max = Math.round((chd_max + Number.EPSILON) * 10) / 10;
+    chd_min_round = Math.round((chd_min + Number.EPSILON) * 10) / 10;
+    chd_max_round = Math.round((chd_max + Number.EPSILON) * 10) / 10;
     var new_crit_damage_avg = (chd_min + chd_max) / 2;
 
     var results_crit_dmg = document.getElementsByClassName("stat_text")[1];
-    results_crit_dmg.innerText = "Crit. Dmg: " + chd_min + "-" + chd_max;
+    results_crit_dmg.innerText = "Crit. Dmg: " + chd_min_round + "-" + chd_max_round;
 
     var critdmg_bar = document.getElementsByClassName("stat_bar")[1];
     var critdmg_bar_increase = bar_width * (new_crit_damage_avg / base_crit_damage_avg);
@@ -436,11 +468,11 @@ function changeGemdrop3(elem) {
     var critchance_bar_increase = bar_width * (chc / current_crit_chance);
     critchance_bar.style.setProperty('width', critchance_bar_increase + '%');
 
-    chc = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
+    chc_round = Math.round((chc * 100 + Number.EPSILON) * 10) / 10;
     var results_crit_chance = document.getElementsByClassName("stat_text")[2];
-    results_crit_chance.innerText = "Crit. Chance: " + chc + "%";
+    results_crit_chance.innerText = "Crit. Chance: " + chc_round + "%";
 
-    // Attack Speed section
+    // Attack speed section
     attack_speed(wep_type, current_speed);
     var speed_bar = document.getElementsByClassName("stat_bar_speed")[0];
     if (wep_type == 'dagger') {
@@ -451,9 +483,19 @@ function changeGemdrop3(elem) {
         speed_bar.style.setProperty('width', speed_bar_increase + '%');
     }
 
-    action_per_second = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
+    action_per_second_round = Math.round((action_per_second + Number.EPSILON) * 10) / 10;
     var results_speed = document.getElementsByClassName("stat_text")[3];
-    results_speed.innerText = "Speed: " + action_per_second + " actions/s";
+    results_speed.innerText = "Speed: " + action_per_second_round + " actions/s";
+
+    // Dps section
+    dps_calc();
+    var dps_bar = document.getElementsByClassName("stat_bar")[3];
+    var dps_bar_increase = bar_width * (damage_per_second / default_dps);
+    dps_bar.style.setProperty('width', dps_bar_increase + '%');
+
+    damage_per_second = Math.round((damage_per_second + Number.EPSILON) * 10) / 10;
+    var results_dps = document.getElementsByClassName("stat_text")[4];
+    results_dps.innerText = "Dps (Dmg/s): " + damage_per_second;
 }
 
 

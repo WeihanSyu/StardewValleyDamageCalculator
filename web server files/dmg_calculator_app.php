@@ -54,7 +54,8 @@
                 "maxDamage" => array(),
                 "critChance" => array(),
                 "critPower" => array(),
-                "speed" => array()
+                "speed" => array(),
+                "default_dps" => array()
             );
 
             $dagger_list = array(
@@ -64,7 +65,8 @@
                 "maxDamage" => array(),
                 "critChance" => array(),
                 "critPower" => array(),
-                "speed" => array()
+                "speed" => array(),
+                "default_dps" => array()
             );
 
             $club_list = array(
@@ -74,7 +76,8 @@
                 "maxDamage" => array(),
                 "critChance" => array(),
                 "critPower" => array(),
-                "speed" => array()
+                "speed" => array(),
+                "default_dps" => array()
             );
 
             # odbc_fetch_row(odbc_object, row_num) fetches a row of the data from odbc_exec() and Returns True or False. 
@@ -97,6 +100,40 @@
                     $row_index++;
                 }
             }
+
+            # Fill in default_dps 
+            $all_weapons = array($dagger_list, $sword_list, $club_list);
+            $count = 1;
+            foreach ($all_weapons as $wep) {
+                for ($i = 0, $length = count($wep[0]); $i < $length; $i++) {
+                    $minDamage = $wep[2][$i];
+                    $maxDamage = $wep[3][$i];
+                    $chc = $wep[4][$i];
+                    $crit_power = $wep[5][$i];
+                    $speed = $wep[6][$i];
+                    $chd_min = $minDamage * (3 + $crit_power/50);
+                    $chd_max = $maxDamage * (3 + $crit_power/50);
+                    $final_damage_min = ( ($chd_min - $minDamage) * $chc ) + $minDamage;
+                    $final_damage_max = ( ($chd_max - $maxDamage) * $chc ) + $maxDamage;
+   
+                    if ($count == 1) {
+                        $action_per_second = 1000 / (125 + ($speed * -40));
+                        if ($action_per_second > 8) {
+                            $action_per_second = 8;
+                        }
+                        $dagger_list[7][] = ($final_damage_min + $final_damage_max) / 2 * $action_per_second; 
+                    } elseif ($count == 2) {
+                        $action_per_second = 1000 / (400 + ($speed * -40));
+                        $sword_list[7][] = ($final_damage_min + $final_damage_max) / 2 * $action_per_second; 
+                    } else {
+                        $action_per_second = 1000 / (720 + ($speed * -40));
+                        $club_list[7][] = ($final_damage_min + $final_damage_max) / 2 * $action_per_second; 
+                    }
+                    
+                }
+                $count += 1;
+            }
+
         ?>
 
         <?php
