@@ -31,6 +31,10 @@ let action_per_second = 0;
 let emerald_level = 0;
 let emerald_ring_amount = 0;
 let innate_speed = 0;
+let blessing_speed = 0;
+
+// Final
+let damage_per_second = 0;
 
 
 // Function to calculate base_damage range. Must be called at every single user choice button.
@@ -88,7 +92,7 @@ function chc_bonus(wep, crit_chance) {
         chc = chc * 1.5;
     }
 
-    chc += luck * chc / 40;
+    chc += (luck + blessing_luck) * chc / 40;
 
     if (chc > 1) {
         chc = 1;
@@ -107,6 +111,7 @@ function attack_speed(wep, speed) {
     }
 
     action += speed * -40;
+    action += blessing_speed * 0.5 * -40;
 
     var level_speed = [2, 3, 2];
     for (let i = 0; i < emerald_level; i++) {
@@ -125,4 +130,10 @@ function attack_speed(wep, speed) {
     } 
 
     action_per_second = 1000 / action;
+}
+
+function dps_calc(min, max, crit_chance, crit_min, crit_max, action_s) {
+    final_damage_min = ( (chd_min - minDamage) * chc ) + minDamage;
+    final_damage_max = ( (chd_max - maxDamage) * chc ) + maxDamage;
+    damage_per_second = (final_damage_min + final_damage_max) / 2 * action_per_second; 
 }
