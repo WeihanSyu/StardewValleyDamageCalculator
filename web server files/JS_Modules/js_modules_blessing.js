@@ -1,3 +1,5 @@
+let media_width = window.matchMedia("(max-width: 1012.5px)"); 
+
 /*
 Add function on click to change the blessing text based on choice as well as 
 change the opacity of the blessing icon that is chosen 
@@ -11,6 +13,10 @@ function changeBlessing(elem) {
 
     // Default font is too large for two sentences so decrease size upon clicking
     blessing_text.style.setProperty('font-size', '22px');
+    
+    if (media_width.matches) {
+        blessing_text.style.setProperty('font-size', '16px');
+    }
 
     if (btn_property.getPropertyValue('--bg-image').includes('Fangs')) {
         elem.classList.toggle("blessing_opacity");
@@ -41,7 +47,11 @@ function changeBlessing(elem) {
     if (btn_property.getPropertyValue('--bg-image-opacity') == 0.5) {
         blessing_text.innerText = 'Select a Blessing';
         // Increase font-size back to default if no blessing is chosen
-        blessing_text.style.setProperty('font-size', '20px');
+        blessing_text.style.setProperty('font-size', '25px');
+
+        if (media_width.matches) {
+            blessing_text.style.setProperty('font-size', '22px');
+        }
 
         // Reset global variables if nothing is chosen
         blessing_fangs = 0;
@@ -136,3 +146,6 @@ function changeBlessing(elem) {
     var results_dps = document.getElementsByClassName("stat_text")[4];
     results_dps.innerText = "Dps (Dmg/s): " + damage_per_second;
 }
+
+
+

@@ -29,7 +29,7 @@
 
     </head>
 
-    <body>  
+    <body id="bg-page">  
     
         <?php
             if (!$ODBC_Conn) {

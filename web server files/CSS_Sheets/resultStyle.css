@@ -6,7 +6,7 @@
     top: 7%;
     bottom: 7%;
     right: 7.5%;
-    outline: 2px groove blue;
+    outline: 6px ridge darkgoldenrod;
 }
 
 .result_title {
@@ -107,3 +107,37 @@
     border-radius: 25px;
     border-right: 2px solid darkgray;
 }
+
+
+@media (max-width: 1012.5px) {
+    .result_container {
+        outline: 4px ridge darkgoldenrod;
+        width: 90%;
+        right: 5%;
+    } .result_title {
+        display: none;
+    } .calculation_container {
+        height: 100%;
+        width: 97%;
+        flex-wrap: wrap;
+        flex-direction: row;
+    } .stat_div_first, .stat_div {
+        flex: 48%;
+        min-height: 40px;
+        height: 40px;
+        margin-left: 2%;
+    } .stat_pic {
+        width: 40px;
+    } .stat_text {
+        left: 40px;
+        width: calc(100% - 40px);
+        font-size: 16px;
+    } .stat_div_last {
+        min-height: 40px;
+        height: 40px;
+        margin: 0;
+    } .stat_pic_dps {
+        width: 40px;
+    }
+}
+

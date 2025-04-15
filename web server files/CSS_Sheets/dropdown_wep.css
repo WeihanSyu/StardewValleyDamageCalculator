@@ -55,7 +55,6 @@
   margin-left: -12.5px;
   width: calc(100% + 2*12.5px);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  outline: 2px double #00008B;
 }
 
 /* Dropdown Content for Dagger Type */
@@ -130,3 +129,19 @@
   
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+
+@media (max-width: 1012.5px) {
+  .dropbtn {
+    padding: 10px;
+    font-size: 18px;
+  } .dropdown_2 {
+    width: calc(100% + 50px);
+    height: 386px;
+  } .dropbtn_2 {
+    margin-top: 4px;
+    font-size: 17px;
+  } .dropdown-content_text1, .dropdown-content_text2 {
+    font-size: 18px;
+  }
+}

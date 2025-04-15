@@ -96,3 +96,16 @@
 .blessing_luck:hover {background-color: darkgoldenrod;}
 
 .blessing_opacity {--bg-image-opacity: 1;}
+
+
+@media (max-width: 1012.5px) {
+    .blessing_text {
+        height: 30%;
+        font-size: 22px;
+        padding-top: 5px;
+    } .blessing_container {
+        height: 70%;
+    }
+}
+
+

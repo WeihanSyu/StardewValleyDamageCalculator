@@ -44,7 +44,7 @@
     overflow-y: scroll;
     min-height: 100px;
     height: calc(41vh - 55px);
-    max-height: 350px;
+    max-height: 322px;
 }
 
 .gem-content_div {
@@ -114,9 +114,16 @@
 .show {display:block;}
 
 
-
-
-
+@media (max-width: 1012.5px) {
+    .gembtn {
+        width: 50px;
+        height: 50px;
+    } .gem-content {
+        height: 322px;
+    } .nogem, .gemtext1 p {
+        font-size: 18px;
+    }
+}
 
 
 

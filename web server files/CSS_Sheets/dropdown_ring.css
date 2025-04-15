@@ -79,7 +79,7 @@
     position: absolute; /*position: absolute overrides display:block to start new line */
     left: 0%;
     width: 70px;
-    height: 62.5px;
+    height: 100%;
 }
 
 .ringpic img {
@@ -91,7 +91,7 @@
 .noring {
     position: absolute;
     left: 70px;
-    height: 62.5px;
+    height: 100%;
     display: inline-flex;
     align-items: center;
     font-size: 20px;
@@ -103,7 +103,7 @@
     position: absolute;
     top: 0%;
     left: 70px;
-    height: 31.25px;
+    height: 50%;
 }
 
 .ringtext1 p {
@@ -117,7 +117,7 @@
     position: absolute;
     top: 50%;
     left: 70px;
-    height: 31.25px;
+    height: 50%;
 }
 
 .ringtext2 p {
@@ -130,3 +130,47 @@
 .disable_click {pointer-events: none;}
 
 .opacity {opacity: 0.5;}
+
+
+@media (max-width: 1012.5px) {
+    .ring_container {
+        height: calc(100% - 30px);
+    } .ringdrop1 {
+        left: 4px;
+    } .ringdrop2 {
+        left: 53px;
+    } .ringdrop3 {
+        right: 53px;
+    } .ringdrop4 {
+        right: 4px;
+    } .ringbtn {
+        width: 45px;
+        height: 45px;
+    } .ring-content {
+        min-height: 362px;
+        height: 362px; 
+        margin-top: 4px;
+    } #ring1.ring-content {
+        left: -94px;
+    } #ring2.ring-content {
+        left: -94px;
+    } #ring3.ring-content {
+        left: -120px;
+    } #ring4.ring-content {
+        right: -60%;
+    } .ring-content_div {
+        width: 200px;
+        height: 50px;
+    } .ringpic {
+        width: 50px;
+    } .noring {
+        font-size: 18px;
+        left: 50px;
+    } .ringtext1, .ringtext2 {
+        left: 50px;
+    } .ringtext1 p {
+        font-size: 18px;
+    }
+}
+
+
