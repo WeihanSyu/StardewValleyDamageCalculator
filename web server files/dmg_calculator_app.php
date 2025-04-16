@@ -17,8 +17,6 @@
         <link rel="stylesheet" href="CSS_Sheets/blessingStyle.css">
         <link rel="stylesheet" href="CSS_Sheets/resultStyle.css">
 
-        <?php include "dbconn.php"; ?>
-
         <script src="JS_Modules/js_modules_wep.js" async></script>
         <script src="JS_Modules/js_modules_gem.js" async></script>
         <script src="JS_Modules/js_modules_innate.js" async></script>
@@ -32,19 +30,13 @@
     <body id="bg-page">  
     
         <?php
-            if (!$ODBC_Conn) {
-                echo "An error occured.\n";
-                exit;
-            }
+            $string_dagger = file_get_contents("../python_json files/weapon_info_dagger.json");
+            $string_sword = file_get_contents("../python_json files/weapon_info_sword.json");
+            $string_club = file_get_contents("../python_json files/weapon_info_club.json");
 
-            $sql_sword = "SELECT * FROM weapon_info WHERE [type] = 0 OR [type] = 3 ORDER BY ((minDamage + maxDamage)/2) DESC";
-            $sql_dagger = "SELECT * FROM weapon_info WHERE [type] = 1 ORDER BY ((minDamage + maxDamage)/2) DESC";
-            $sql_club = "SELECT * FROM weapon_info WHERE [type] = 2 ORDER BY ((minDamage + maxDamage)/2) DESC";
-
-            # odbc_exec directly execute our SQL statement and returns an ODBC object
-            $result_sword = odbc_exec($ODBC_Conn, $sql_sword);
-            $result_dagger = odbc_exec($ODBC_Conn, $sql_dagger);
-            $result_club = odbc_exec($ODBC_Conn, $sql_club);
+            $json_dagger = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string_dagger), true );
+            $json_sword = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string_sword), true );
+            $json_club = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string_club), true );
 
             # make nested array variables to store our SQL results.
             $sword_list = array(
@@ -80,25 +72,34 @@
                 "default_dps" => array()
             );
 
-            # odbc_fetch_row(odbc_object, row_num) fetches a row of the data from odbc_exec() and Returns True or False. 
-            # If row is not specified, it will fetch the next row each time. But this means row 1 is skipped. So we specify when iterating.
-            for ($x = 0; $x <= 6; $x++) {
-                $row_index = 1;
-                while(odbc_fetch_row($result_sword, $row_index)) {      # Same as -> while(True) but for our row results.
-                    # odbc_result(odbc_object, field) -> field can be an integer for the column number or the name of the field. 
-                    $sword_list[$x][] = odbc_result($result_sword, $x + 1);
-                    $row_index++;
-                }
-                $row_index = 1;
-                while(odbc_fetch_row($result_dagger, $row_index)) {
-                    $dagger_list[$x][] = odbc_result($result_dagger, $x + 1);
-                    $row_index++;
-                }
-                $row_index = 1;
-                while(odbc_fetch_row($result_club, $row_index)) {
-                    $club_list[$x][] = odbc_result($result_club, $x + 1);
-                    $row_index++;
-                }
+            for ($i = 0; $i < count($json_dagger); $i++) {
+                $dagger_list[0][] = $json_dagger[$i]["name"];
+                $dagger_list[1][] = $json_dagger[$i]["type"];
+                $dagger_list[2][] = $json_dagger[$i]["minDamage"];
+                $dagger_list[3][] = $json_dagger[$i]["maxDamage"];
+                $dagger_list[4][] = $json_dagger[$i]["critChance"];
+                $dagger_list[5][] = $json_dagger[$i]["critPower"];
+                $dagger_list[6][] = $json_dagger[$i]["speed"];
+            }
+
+            for ($i = 0; $i < count($json_sword); $i++) {
+                $sword_list[0][] = $json_sword[$i]["name"];
+                $sword_list[1][] = $json_sword[$i]["type"];
+                $sword_list[2][] = $json_sword[$i]["minDamage"];
+                $sword_list[3][] = $json_sword[$i]["maxDamage"];
+                $sword_list[4][] = $json_sword[$i]["critChance"];
+                $sword_list[5][] = $json_sword[$i]["critPower"];
+                $sword_list[6][] = $json_sword[$i]["speed"];
+            }
+
+            for ($i = 0; $i < count($json_club); $i++) {
+                $club_list[0][] = $json_club[$i]["name"];
+                $club_list[1][] = $json_club[$i]["type"];
+                $club_list[2][] = $json_club[$i]["minDamage"];
+                $club_list[3][] = $json_club[$i]["maxDamage"];
+                $club_list[4][] = $json_club[$i]["critChance"];
+                $club_list[5][] = $json_club[$i]["critPower"];
+                $club_list[6][] = $json_club[$i]["speed"];
             }
 
             # Fill in default_dps 

@@ -1,0 +1,146 @@
+[
+    {
+        "name": "Infinity Gavel",
+        "type": 2,
+        "minDamage": 100,
+        "maxDamage": 120,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Dragontooth Club",
+        "type": 2,
+        "minDamage": 80,
+        "maxDamage": 100,
+        "critChance": 0.019999999552965164,
+        "critPower": 50,
+        "speed": 0
+    },
+    {
+        "name": "Dwarf Hammer",
+        "type": 2,
+        "minDamage": 75,
+        "maxDamage": 85,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Galaxy Hammer",
+        "type": 2,
+        "minDamage": 70,
+        "maxDamage": 90,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Sam's Old Guitar",
+        "type": 2,
+        "minDamage": 40,
+        "maxDamage": 55,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Alex's Bat",
+        "type": 2,
+        "minDamage": 40,
+        "maxDamage": 55,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "The Slammer",
+        "type": 2,
+        "minDamage": 40,
+        "maxDamage": 55,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Maru's Wrench",
+        "type": 2,
+        "minDamage": 40,
+        "maxDamage": 55,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Harvey's Mallet",
+        "type": 2,
+        "minDamage": 40,
+        "maxDamage": 55,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Penny's Fryer",
+        "type": 2,
+        "minDamage": 40,
+        "maxDamage": 55,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Seb's Lost Mace",
+        "type": 2,
+        "minDamage": 40,
+        "maxDamage": 55,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Kudgel",
+        "type": 2,
+        "minDamage": 27,
+        "maxDamage": 40,
+        "critChance": 0.019999999552965164,
+        "critPower": 50,
+        "speed": -1
+    },
+    {
+        "name": "Lead Rod",
+        "type": 2,
+        "minDamage": 18,
+        "maxDamage": 27,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -4
+    },
+    {
+        "name": "Wood Mallet",
+        "type": 2,
+        "minDamage": 15,
+        "maxDamage": 24,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Wood Club",
+        "type": 2,
+        "minDamage": 9,
+        "maxDamage": 16,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Femur",
+        "type": 2,
+        "minDamage": 6,
+        "maxDamage": 11,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    }
+]
