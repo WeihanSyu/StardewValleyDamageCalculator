@@ -262,6 +262,57 @@ function highlightClub() {
 }
 
 
+// Looping the DOM creating div elements in JavaScript to display data
+if (document.readyState !== 'loading') {
+  const dropDagger = document.querySelector(".dropdown-content_dagger");
+
+  for (let i = 0; i < dagger_list[0].length; i++) {
+    const dropContentTextDiv = document.createElement('div');
+    dropContentTextDiv.className = "dropdown-content_text_div";
+
+    const dropContentText1 = document.createElement('p');
+    dropContentText1.className = "dropdown-content_text1";
+    dropContentText1.innerText = dagger_list[0][i];
+    dropContentTextDiv.appendChild(dropContentText1);
+
+    const dropContentText2 = document.createElement('p');
+    dropContentText2.className = "dropdown-content_text2";
+    dropContentText2.innerText = dagger_list[2][i] + '-' + dagger_list[3][i];
+    dropContentText1.insertAdjacentElement("afterend", dropContentText2);
+
+    dropDagger.appendChild(dropContentTextDiv);
+  }
+} else {
+  document.addEventListener("DOMContentLoaded", function() {
+    const dropDagger = document.querySelector(".dropdown-content_dagger");
+  
+    for (let i = 0; i < dagger_list[0].length; i++) {
+      const dropContentTextDiv = document.createElement('div');
+      dropContentTextDiv.className = "dropdown-content_text_div";
+  
+      const dropContentText1 = document.createElement('p');
+      dropContentText1.className = "dropdown-content_text1";
+      dropContentText1.innerText = dagger_list[0][i];
+      dropContentTextDiv.appendChild(dropContentText1);
+  
+      const dropContentText2 = document.createElement('p');
+      dropContentText2.className = "dropdown-content_text2";
+      dropContentText2.innerText = dagger_list[2][i] + '-' + dagger_list[3][i];
+      dropContentText1.insertAdjacentElement("afterend", dropContentText2);
+  
+      dropDagger.appendChild(dropContentTextDiv);
+    }
+  })
+}
+
+
+  
+
+
+
+  
+
+
 
 /*
 if (document.querySelector(".dropbtn").innerText.includes("Rusty Sword")) {
