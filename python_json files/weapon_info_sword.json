@@ -1,0 +1,290 @@
+[
+    {
+        "name": "Infinity Blade",
+        "type": 0,
+        "minDamage": 80,
+        "maxDamage": 100,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 4
+    },
+    {
+        "name": "Dragontooth Cutlass",
+        "type": 0,
+        "minDamage": 75,
+        "maxDamage": 90,
+        "critChance": 0.019999999552965164,
+        "critPower": 50,
+        "speed": 0
+    },
+    {
+        "name": "Dwarf Sword",
+        "type": 0,
+        "minDamage": 65,
+        "maxDamage": 75,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Galaxy Sword",
+        "type": 0,
+        "minDamage": 60,
+        "maxDamage": 80,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 4
+    },
+    {
+        "name": "Lava Katana",
+        "type": 0,
+        "minDamage": 55,
+        "maxDamage": 64,
+        "critChance": 0.014999999664723873,
+        "critPower": 25,
+        "speed": 0
+    },
+    {
+        "name": "Leah's Whittler",
+        "type": 0,
+        "minDamage": 30,
+        "maxDamage": 45,
+        "critChance": 0.019999999552965164,
+        "critPower": 10,
+        "speed": -1
+    },
+    {
+        "name": "Haley's Iron",
+        "type": 0,
+        "minDamage": 30,
+        "maxDamage": 45,
+        "critChance": 0.019999999552965164,
+        "critPower": 10,
+        "speed": -1
+    },
+    {
+        "name": "Obsidian Edge",
+        "type": 0,
+        "minDamage": 30,
+        "maxDamage": 45,
+        "critChance": 0.019999999552965164,
+        "critPower": 10,
+        "speed": -1
+    },
+    {
+        "name": "Dark Sword",
+        "type": 0,
+        "minDamage": 30,
+        "maxDamage": 45,
+        "critChance": 0.03999999910593033,
+        "critPower": 0,
+        "speed": -5
+    },
+    {
+        "name": "Steel Falchion",
+        "type": 0,
+        "minDamage": 28,
+        "maxDamage": 46,
+        "critChance": 0.019999999552965164,
+        "critPower": 20,
+        "speed": 4
+    },
+    {
+        "name": "Tempered Broadsword",
+        "type": 0,
+        "minDamage": 29,
+        "maxDamage": 44,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -3
+    },
+    {
+        "name": "Yeti Tooth",
+        "type": 0,
+        "minDamage": 26,
+        "maxDamage": 42,
+        "critChance": 0.019999999552965164,
+        "critPower": 10,
+        "speed": 0
+    },
+    {
+        "name": "Ossified Blade",
+        "type": 0,
+        "minDamage": 26,
+        "maxDamage": 42,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Neptune's Glaive",
+        "type": 3,
+        "minDamage": 18,
+        "maxDamage": 35,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -1
+    },
+    {
+        "name": "Claymore",
+        "type": 3,
+        "minDamage": 20,
+        "maxDamage": 32,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -4
+    },
+    {
+        "name": "Templar's Blade",
+        "type": 3,
+        "minDamage": 22,
+        "maxDamage": 29,
+        "critChance": 0,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Bone Sword",
+        "type": 0,
+        "minDamage": 20,
+        "maxDamage": 30,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 4
+    },
+    {
+        "name": "Insect Head",
+        "type": 0,
+        "minDamage": 20,
+        "maxDamage": 30,
+        "critChance": 0.03999999910593033,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Holy Blade",
+        "type": 0,
+        "minDamage": 20,
+        "maxDamage": 27,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 4
+    },
+    {
+        "name": "Rapier",
+        "type": 0,
+        "minDamage": 15,
+        "maxDamage": 25,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Meowmere",
+        "type": 0,
+        "minDamage": 20,
+        "maxDamage": 20,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 4
+    },
+    {
+        "name": "Iridium Scythe",
+        "type": 0,
+        "minDamage": 20,
+        "maxDamage": 20,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Iron Edge",
+        "type": 3,
+        "minDamage": 12,
+        "maxDamage": 25,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": -2
+    },
+    {
+        "name": "Forest Sword",
+        "type": 0,
+        "minDamage": 8,
+        "maxDamage": 18,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Cutlass",
+        "type": 0,
+        "minDamage": 9,
+        "maxDamage": 17,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Golden Scythe",
+        "type": 0,
+        "minDamage": 13,
+        "maxDamage": 13,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Pirate's Sword",
+        "type": 3,
+        "minDamage": 8,
+        "maxDamage": 14,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Silver Saber",
+        "type": 0,
+        "minDamage": 8,
+        "maxDamage": 15,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Steel Smallsword",
+        "type": 0,
+        "minDamage": 4,
+        "maxDamage": 8,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 2
+    },
+    {
+        "name": "Wooden Blade",
+        "type": 0,
+        "minDamage": 3,
+        "maxDamage": 7,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Rusty Sword",
+        "type": 3,
+        "minDamage": 2,
+        "maxDamage": 5,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    },
+    {
+        "name": "Scythe",
+        "type": 0,
+        "minDamage": 1,
+        "maxDamage": 3,
+        "critChance": 0.019999999552965164,
+        "critPower": 0,
+        "speed": 0
+    }
+]
