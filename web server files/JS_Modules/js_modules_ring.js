@@ -9,6 +9,16 @@ let ringbtn2 = ringdrop2.querySelector(".ringbtn");
 let ringbtn3 = ringdrop3.querySelector(".ringbtn");
 let ringbtn4 = ringdrop4.querySelector(".ringbtn");
 
+// Create Global ring_list object
+const ring_list = {
+    "Iridium Band": "Damage: +10%",
+    "Ruby Ring": "Damage: +10%",
+    "Aquamarine Ring": "Crit Chance: +10%",
+    "Jade Ring": "Crit Damage: +10%",
+    "Emerald Ring": "Speed: +10%",
+    "Lucky Ring": "Luck: +1"
+};
+
 /* 
 1. change display:none to display:block upon clicking the ring dropdown button 
 2. Disable click events for the ring div of a duplicate ring in each hand.
@@ -710,3 +720,153 @@ function changeRingdrop4(elem) {
     var results_dps = document.getElementsByClassName("stat_text")[4];
     results_dps.innerText = "Dps (Dmg/s): " + damage_per_second;
 }
+
+
+
+// Add functions to loop DOM and create elements based on gem_list values
+function addContentRing1() {
+    const ringContentDiv0 = document.getElementById("ring1").firstElementChild;
+    for (let i = Object.keys(ring_list).length - 1; i >=0;  i--) {
+        const ringContentDiv = document.createElement('div');
+        ringContentDiv.className = "ring-content_div";
+        ringContentDiv.onclick = function () {
+            changeRingdrop1(this);
+        }
+
+        const ringpic = document.createElement('div');
+        ringpic.className = "ringpic";
+
+        const img = document.createElement('img');
+        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        img.src = ring_text;
+
+        const ringtext1 = document.createElement('div');
+        ringtext1.className = "ringtext1";
+
+        const p1 = document.createElement('p');
+        p1.innerText = Object.keys(ring_list)[i];
+
+        const ringtext2 = document.createElement('div');
+        ringtext2.className = "ringtext2";
+
+        const p2 = document.createElement('p');
+        p2.innerText = ring_list[Object.keys(ring_list)[i]];
+
+        ringContentDiv.appendChild(ringpic);
+        ringpic.appendChild(img);
+        ringpic.insertAdjacentElement("afterend", ringtext1);
+        ringtext1.appendChild(p1);
+        ringtext1.insertAdjacentElement("afterend", ringtext2);
+        ringtext2.appendChild(p2);
+        
+        ringContentDiv0.insertAdjacentElement("afterend", ringContentDiv);
+    }
+};
+
+function addContentRing2() {
+    const ringContentDiv0 = document.getElementById("ring2").firstElementChild;
+    for (let i = Object.keys(ring_list).length - 1; i >=0;  i--) {
+        const ringContentDiv = document.createElement('div');
+        ringContentDiv.className = "ring-content_div";
+        ringContentDiv.onclick = function () {
+            changeRingdrop2(this);
+        }
+        const ringpic = document.createElement('div');
+        ringpic.className = "ringpic";
+        const img = document.createElement('img');
+        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        img.src = ring_text;
+        const ringtext1 = document.createElement('div');
+        ringtext1.className = "ringtext1";
+        const p1 = document.createElement('p');
+        p1.innerText = Object.keys(ring_list)[i];
+        const ringtext2 = document.createElement('div');
+        ringtext2.className = "ringtext2";
+        const p2 = document.createElement('p');
+        p2.innerText = ring_list[Object.keys(ring_list)[i]];
+        ringContentDiv.appendChild(ringpic);
+        ringpic.appendChild(img);
+        ringpic.insertAdjacentElement("afterend", ringtext1);
+        ringtext1.appendChild(p1);
+        ringtext1.insertAdjacentElement("afterend", ringtext2);
+        ringtext2.appendChild(p2);
+        ringContentDiv0.insertAdjacentElement("afterend", ringContentDiv);
+    }
+};
+
+function addContentRing3() {
+    const ringContentDiv0 = document.getElementById("ring3").firstElementChild;
+    for (let i = Object.keys(ring_list).length - 1; i >=0;  i--) {
+        const ringContentDiv = document.createElement('div');
+        ringContentDiv.className = "ring-content_div";
+        ringContentDiv.onclick = function () {
+            changeRingdrop3(this);
+        }
+        const ringpic = document.createElement('div');
+        ringpic.className = "ringpic";
+        const img = document.createElement('img');
+        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        img.src = ring_text;
+        const ringtext1 = document.createElement('div');
+        ringtext1.className = "ringtext1";
+        const p1 = document.createElement('p');
+        p1.innerText = Object.keys(ring_list)[i];
+        const ringtext2 = document.createElement('div');
+        ringtext2.className = "ringtext2";
+        const p2 = document.createElement('p');
+        p2.innerText = ring_list[Object.keys(ring_list)[i]];
+        ringContentDiv.appendChild(ringpic);
+        ringpic.appendChild(img);
+        ringpic.insertAdjacentElement("afterend", ringtext1);
+        ringtext1.appendChild(p1);
+        ringtext1.insertAdjacentElement("afterend", ringtext2);
+        ringtext2.appendChild(p2);
+        ringContentDiv0.insertAdjacentElement("afterend", ringContentDiv);
+    }
+};
+
+function addContentRing4() {
+    const ringContentDiv0 = document.getElementById("ring4").firstElementChild;
+    for (let i = Object.keys(ring_list).length - 1; i >=0;  i--) {
+        const ringContentDiv = document.createElement('div');
+        ringContentDiv.className = "ring-content_div";
+        ringContentDiv.onclick = function () {
+            changeRingdrop4(this);
+        }
+        const ringpic = document.createElement('div');
+        ringpic.className = "ringpic";
+        const img = document.createElement('img');
+        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        img.src = ring_text;
+        const ringtext1 = document.createElement('div');
+        ringtext1.className = "ringtext1";
+        const p1 = document.createElement('p');
+        p1.innerText = Object.keys(ring_list)[i];
+        const ringtext2 = document.createElement('div');
+        ringtext2.className = "ringtext2";
+        const p2 = document.createElement('p');
+        p2.innerText = ring_list[Object.keys(ring_list)[i]];
+        ringContentDiv.appendChild(ringpic);
+        ringpic.appendChild(img);
+        ringpic.insertAdjacentElement("afterend", ringtext1);
+        ringtext1.appendChild(p1);
+        ringtext1.insertAdjacentElement("afterend", ringtext2);
+        ringtext2.appendChild(p2);
+        ringContentDiv0.insertAdjacentElement("afterend", ringContentDiv);
+    }
+};
+
+// Call the addContent functions after document has loaded
+if (document.readyState !== 'loading') {
+    addContentRing1();
+    addContentRing2();
+    addContentRing3();
+    addContentRing4();
+} else {
+    document.addEventListener("DOMContentLoaded", function() {
+        addContentRing1();
+        addContentRing2();
+        addContentRing3();
+        addContentRing4();
+    })
+};

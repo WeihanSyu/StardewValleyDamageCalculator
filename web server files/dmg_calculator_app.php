@@ -30,21 +30,6 @@
 
     <body>  
         
-
-        <?php 
-            $ring_list = array(
-                "Iridium Band" => "Damage: +10%",
-                "Ruby Ring" => "Damage: +10%",
-                "Aquamarine Ring" => "Crit Chance: +10%",
-                "Jade Ring" => "Crit Damage: +10%",
-                "Emerald Ring" => "Speed: +10%",
-                "Lucky Ring" => "Luck: +1"
-            );
-        ?>
-
-        
-
-        
         <div class="div1">
 
             <div class="div2">
@@ -183,24 +168,7 @@
                                         No Ring
                                     </div>
                                 </div>
-                                <?php foreach(array(0,1,2,3,4,5) as $i):?>
-                                    <div onclick="changeRingdrop1(this)" class="ring-content_div">
-                                        <?php $ring_text = "../images/rings/" . array_keys($ring_list)[$i] . ".png"; ?>
-                                        <div class="ringpic">
-                                            <img src="<?php echo $ring_text; ?>" ></img>
-                                        </div>
-                                        <div class="ringtext1">
-                                            <p>
-                                                <?php echo array_keys($ring_list)[$i]; ?>
-                                            </p>
-                                        </div>  
-                                        <div class="ringtext2">
-                                            <p>
-                                                <?php echo $ring_list[array_keys($ring_list)[$i]]; ?>
-                                            </p>
-                                        </div>      
-                                    </div>
-                                <?php endforeach;?> 
+                                
                             </div>
                         </div>
                         <div class="ringdrop2">
@@ -214,24 +182,7 @@
                                         No Ring
                                     </div>
                                 </div>
-                                <?php foreach(array(0,1,2,3,4,5) as $i):?>
-                                    <div onclick="changeRingdrop2(this)" class="ring-content_div">
-                                        <?php $ring_text = "../images/rings/" . array_keys($ring_list)[$i] . ".png"; ?>
-                                        <div class="ringpic">
-                                            <img src="<?php echo $ring_text; ?>" ></img>
-                                        </div>
-                                        <div class="ringtext1">
-                                            <p>
-                                                <?php echo array_keys($ring_list)[$i]; ?>
-                                            </p>
-                                        </div>  
-                                        <div class="ringtext2">
-                                            <p>
-                                                <?php echo $ring_list[array_keys($ring_list)[$i]]; ?>
-                                            </p>
-                                        </div>      
-                                    </div>
-                                <?php endforeach;?> 
+                                
                             </div>
                         </div>
                         <div class="ringdrop3">
@@ -245,24 +196,7 @@
                                         No Ring
                                     </div>
                                 </div>
-                                <?php foreach(array(0,1,2,3,4,5) as $i):?>
-                                    <div onclick="changeRingdrop3(this)" class="ring-content_div">
-                                        <?php $ring_text = "../images/rings/" . array_keys($ring_list)[$i] . ".png"; ?>
-                                        <div class="ringpic">
-                                            <img src="<?php echo $ring_text; ?>" ></img>
-                                        </div>
-                                        <div class="ringtext1">
-                                            <p>
-                                                <?php echo array_keys($ring_list)[$i]; ?>
-                                            </p>
-                                        </div>  
-                                        <div class="ringtext2">
-                                            <p>
-                                                <?php echo $ring_list[array_keys($ring_list)[$i]]; ?>
-                                            </p>
-                                        </div>      
-                                    </div>
-                                <?php endforeach;?> 
+                                
                             </div>
                         </div>
                         <div class="ringdrop4">
@@ -276,24 +210,7 @@
                                         No Ring
                                     </div>
                                 </div>
-                                <?php foreach(array(0,1,2,3,4,5) as $i):?>
-                                    <div onclick="changeRingdrop4(this)" class="ring-content_div">
-                                        <?php $ring_text = "../images/rings/" . array_keys($ring_list)[$i] . ".png"; ?>
-                                        <div class="ringpic">
-                                            <img src="<?php echo $ring_text; ?>" ></img>
-                                        </div>
-                                        <div class="ringtext1">
-                                            <p>
-                                                <?php echo array_keys($ring_list)[$i]; ?>
-                                            </p>
-                                        </div>  
-                                        <div class="ringtext2">
-                                            <p>
-                                                <?php echo $ring_list[array_keys($ring_list)[$i]]; ?>
-                                            </p>
-                                        </div>      
-                                    </div>
-                                <?php endforeach;?> 
+                                
                             </div>
                         </div>
                     </div>
