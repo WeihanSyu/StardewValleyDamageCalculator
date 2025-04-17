@@ -29,124 +29,6 @@
     </head>
 
     <body>  
-    
-        <?php
-            $string_dagger = file_get_contents("../python_json files/weapon_info_dagger.json");
-            $string_sword = file_get_contents("../python_json files/weapon_info_sword.json");
-            $string_club = file_get_contents("../python_json files/weapon_info_club.json");
-
-            $json_dagger = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string_dagger), true );
-            $json_sword = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string_sword), true );
-            $json_club = json_decode( preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $string_club), true );
-
-            # make nested array variables to store our SQL results.
-            $sword_list = array(
-                "name" => array(),
-                "type" => array(),
-                "minDamage" => array(),
-                "maxDamage" => array(),
-                "critChance" => array(),
-                "critPower" => array(),
-                "speed" => array(),
-                "default_dps" => array()
-            );
-
-            $dagger_list = array(
-                "name" => array(),
-                "type" => array(),
-                "minDamage" => array(),
-                "maxDamage" => array(),
-                "critChance" => array(),
-                "critPower" => array(),
-                "speed" => array(),
-                "default_dps" => array()
-            );
-
-            $club_list = array(
-                "name" => array(),
-                "type" => array(),
-                "minDamage" => array(),
-                "maxDamage" => array(),
-                "critChance" => array(),
-                "critPower" => array(),
-                "speed" => array(),
-                "default_dps" => array()
-            );
-
-            for ($i = 0; $i < count($json_dagger); $i++) {
-                $dagger_list[0][] = $json_dagger[$i]["name"];
-                $dagger_list[1][] = $json_dagger[$i]["type"];
-                $dagger_list[2][] = $json_dagger[$i]["minDamage"];
-                $dagger_list[3][] = $json_dagger[$i]["maxDamage"];
-                $dagger_list[4][] = $json_dagger[$i]["critChance"];
-                $dagger_list[5][] = $json_dagger[$i]["critPower"];
-                $dagger_list[6][] = $json_dagger[$i]["speed"];
-            }
-
-            for ($i = 0; $i < count($json_sword); $i++) {
-                $sword_list[0][] = $json_sword[$i]["name"];
-                $sword_list[1][] = $json_sword[$i]["type"];
-                $sword_list[2][] = $json_sword[$i]["minDamage"];
-                $sword_list[3][] = $json_sword[$i]["maxDamage"];
-                $sword_list[4][] = $json_sword[$i]["critChance"];
-                $sword_list[5][] = $json_sword[$i]["critPower"];
-                $sword_list[6][] = $json_sword[$i]["speed"];
-            }
-
-            for ($i = 0; $i < count($json_club); $i++) {
-                $club_list[0][] = $json_club[$i]["name"];
-                $club_list[1][] = $json_club[$i]["type"];
-                $club_list[2][] = $json_club[$i]["minDamage"];
-                $club_list[3][] = $json_club[$i]["maxDamage"];
-                $club_list[4][] = $json_club[$i]["critChance"];
-                $club_list[5][] = $json_club[$i]["critPower"];
-                $club_list[6][] = $json_club[$i]["speed"];
-            }
-
-            # Fill in default_dps 
-            $all_weapons = array($dagger_list, $sword_list, $club_list);
-            $count = 1;
-            foreach ($all_weapons as $wep) {
-                for ($i = 0, $length = count($wep[0]); $i < $length; $i++) {
-                    $minDamage = $wep[2][$i];
-                    $maxDamage = $wep[3][$i];
-                    $chc = $wep[4][$i];
-                    $crit_power = $wep[5][$i];
-                    $speed = $wep[6][$i];
-                    $chd_min = $minDamage * (3 + $crit_power/50);
-                    $chd_max = $maxDamage * (3 + $crit_power/50);
-                    $final_damage_min = ( ($chd_min - $minDamage) * $chc ) + $minDamage;
-                    $final_damage_max = ( ($chd_max - $maxDamage) * $chc ) + $maxDamage;
-   
-                    if ($count == 1) {
-                        $action_per_second = 1000 / (125 + ($speed * -40));
-                        if ($action_per_second > 8) {
-                            $action_per_second = 8;
-                        }
-                        $dagger_list[7][] = ($final_damage_min + $final_damage_max) / 2 * $action_per_second; 
-                    } elseif ($count == 2) {
-                        $action_per_second = 1000 / (400 + ($speed * -40));
-                        $sword_list[7][] = ($final_damage_min + $final_damage_max) / 2 * $action_per_second; 
-                    } else {
-                        $action_per_second = 1000 / (720 + ($speed * -40));
-                        $club_list[7][] = ($final_damage_min + $final_damage_max) / 2 * $action_per_second; 
-                    }
-                    
-                }
-                $count += 1;
-            }
-
-        ?>
-
-        <?php
-            $gem_list = array( 
-                "Aquamarine" => "Crit Chance: +0.046", 
-                "Emerald" => "Speed: +2", 
-                "Jade" => "Crit Power: +5", 
-                "Ruby" => "Damage: +10%"
-            );
-        ?>
-
         <?php
             $innate_list = array(
                 "Attack" => array("+1", "+2", "+3", "+4", "+5"),
@@ -167,12 +49,7 @@
             );
         ?>
 
-        <!-- Send our PHP weapon arrays to be used by any of our linked Javascript files -->
-        <script type="text/javascript">
-            let dagger_list = <?php echo json_encode($dagger_list); ?>;
-            let sword_list = <?php echo json_encode($sword_list); ?>;
-            let club_list = <?php echo json_encode($club_list); ?>;
-        </script>
+        
 
         
         <div class="div1">
@@ -208,30 +85,12 @@
 
                                 <button id="swordBtn" class="dropbtn_2">Swords</button>
                                 <div class="dropdown-content_sword">
-                                    <?php for($i = 0, $length = count($sword_list[0]); $i < $length; $i++):?>
-                                        <div onclick="changeDropdownName(this)" class="dropdown-content_text_div">
-                                            <p class="dropdown-content_text1">
-                                                <?php echo $sword_list[0][$i]; ?>
-                                            </p>
-                                            <p class="dropdown-content_text2">
-                                                <?php echo $sword_list[2][$i] . "-" . $sword_list[3][$i]; ?>
-                                            </p>
-                                        </div>
-                                    <?php endfor;?>
+                                    
                                 </div>
 
                                 <button id="clubBtn" class="dropbtn_2">Clubs</button>
                                 <div class="dropdown-content_club">
-                                    <?php for($i = 0, $length = count($club_list[0]); $i < $length; $i++):?>
-                                        <div onclick="changeDropdownName(this)" class="dropdown-content_text_div">
-                                            <p class="dropdown-content_text1">
-                                                <?php echo $club_list[0][$i]; ?>
-                                            </p>
-                                            <p class="dropdown-content_text2">
-                                                <?php echo $club_list[2][$i] . "-" . $club_list[3][$i]; ?>
-                                            </p>
-                                        </div>
-                                    <?php endfor;?>
+                                    
                                 </div>
                             </div>
                             
@@ -253,24 +112,7 @@
                                     No Gem
                                 </div>
                             </div>
-                            <?php foreach(array(0,1,2,3) as $i):?>
-                                <div onclick="changeGemdrop1(this)" class="gem-content_div">
-                                    <?php $gem_text = "../images/gems/" . array_keys($gem_list)[$i] . ".png"; ?>
-                                    <div class="gempic">
-                                        <img src="<?php echo $gem_text; ?>" ></img>
-                                    </div>
-                                    <div class="gemtext1">
-                                        <p>
-                                            <?php echo array_keys($gem_list)[$i]; ?>
-                                        </p>
-                                    </div>  
-                                    <div class="gemtext2">
-                                        <p>
-                                            <?php echo $gem_list[array_keys($gem_list)[$i]]; ?>
-                                        </p>
-                                    </div>      
-                                </div>
-                            <?php endforeach;?> 
+                            
                         </div>
                     </div>
                     <div class="gemdropdown2">
@@ -284,24 +126,7 @@
                                     No Gem
                                 </div>
                             </div>
-                            <?php foreach(array(0,1,2,3) as $i):?>
-                                <div onclick="changeGemdrop2(this)" class="gem-content_div">
-                                    <?php $gem_text = "../images/gems/" . array_keys($gem_list)[$i] . ".png"; ?>
-                                    <div class="gempic">
-                                        <img src="<?php echo $gem_text; ?>" ></img>
-                                    </div>
-                                    <div class="gemtext1">
-                                        <p>
-                                            <?php echo array_keys($gem_list)[$i]; ?>
-                                        </p>
-                                    </div>  
-                                    <div class="gemtext2">
-                                        <p>
-                                            <?php echo $gem_list[array_keys($gem_list)[$i]]; ?>
-                                        </p>
-                                    </div>      
-                                </div>
-                            <?php endforeach;?> 
+                            
                         </div>
                     </div>
                     <div class="gemdropdown3">
@@ -315,24 +140,7 @@
                                     No Gem
                                 </div>
                             </div>
-                            <?php foreach(array(0,1,2,3) as $i):?>
-                                <div onclick="changeGemdrop3(this)" class="gem-content_div">
-                                    <?php $gem_text = "../images/gems/" . array_keys($gem_list)[$i] . ".png"; ?>
-                                    <div class="gempic">
-                                        <img src="<?php echo $gem_text; ?>" ></img>
-                                    </div>
-                                    <div class="gemtext1">
-                                        <p>
-                                            <?php echo array_keys($gem_list)[$i]; ?>
-                                        </p>
-                                    </div>  
-                                    <div class="gemtext2">
-                                        <p>
-                                            <?php echo $gem_list[array_keys($gem_list)[$i]]; ?>
-                                        </p>
-                                    </div>      
-                                </div>
-                            <?php endforeach;?> 
+                            
                         </div>
                     </div>
                     

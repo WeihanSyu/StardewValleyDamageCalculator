@@ -1,3 +1,12 @@
+// Create Global gem_list object
+const gem_list = {
+    "Aquamarine": "Crit Chance: +0.046", 
+    "Emerald": "Speed: +2", 
+    "Jade": "Crit Power: +5", 
+    "Ruby": "Damage: +10%"
+};
+
+
 function showGemDropdown1() {
     document.getElementById("myGems1").classList.toggle("show");
 }
@@ -547,6 +556,120 @@ window.addEventListener("click", function(event) {
 
 
 
+// Add functions to loop DOM and create div elements based on gem_list values
+function addContentGem1() {
+    const dropGem1 = document.getElementById("myGems1").firstElementChild;
+    for (let i = 0; i < Object.keys(gem_list).length; i++) {
+        const gemContentDiv = document.createElement('div');
+        gemContentDiv.className = "gem-content_div";
+        gemContentDiv.onclick = function () {
+            changeGemdrop1(this);
+        }
 
+        const gempic = document.createElement('div');
+        gempic.className = "gempic";
+
+        const img = document.createElement('img');
+        let gem_text = "../../images/gems/" + Object.keys(gem_list)[i] + ".png";
+        console.log(gem_text);
+        img.src = gem_text;
+
+        const gemtext1 = document.createElement('div');
+        gemtext1.className = "gemtext1";
+
+        const p1 = document.createElement('p');
+        p1.innerText = Object.keys(gem_list)[i];
+
+        const gemtext2 = document.createElement('div');
+        gemtext2.className = "gemtext2";
+
+        const p2 = document.createElement('p');
+        p2.innerText = gem_list[Object.keys(gem_list)[0]];
+
+        gemContentDiv.appendChild(gempic);
+        gempic.appendChild(img);
+        gempic.insertAdjacentElement("afterend", gemtext1);
+        gemtext1.appendChild(p1);
+        gemtext1.insertAdjacentElement("afterend", gemtext2);
+        gemtext2.appendChild(p2);
+
+        dropGem1.insertAdjacentElement("afterend", gemContentDiv);
+    }
+};
+
+function addContentGem2() {
+    const dropGem2 = document.getElementById("myGems2").firstElementChild;
+    for (let i = 0; i < Object.keys(gem_list).length; i++) {
+        const gemContentDiv = document.createElement('div');
+        gemContentDiv.className = "gem-content_div";
+        gemContentDiv.onclick = function () {
+            changeGemdrop2(this);
+        }
+        const gempic = document.createElement('div');
+        gempic.className = "gempic";
+        const img = document.createElement('img');
+        let gem_text = "../../images/gems/" + Object.keys(gem_list)[i] + ".png";
+        img.src = gem_text;
+        const gemtext1 = document.createElement('div');
+        gemtext1.className = "gemtext1";
+        const p1 = document.createElement('p');
+        p1.innerText = Object.keys(gem_list)[i];
+        const gemtext2 = document.createElement('div');
+        gemtext2.className = "gemtext2";
+        const p2 = document.createElement('p');
+        p2.innerText = gem_list[Object.keys(gem_list)[0]];
+        gemContentDiv.appendChild(gempic);
+        gempic.appendChild(img);
+        gempic.insertAdjacentElement("afterend", gemtext1);
+        gemtext1.appendChild(p1);
+        gemtext1.insertAdjacentElement("afterend", gemtext2);
+        gemtext2.appendChild(p2);
+        dropGem2.insertAdjacentElement("afterend", gemContentDiv);
+    }
+};
+
+function addContentGem3() {
+    const dropGem3 = document.getElementById("myGems3").firstElementChild;
+    for (let i = 0; i < Object.keys(gem_list).length; i++) {
+        const gemContentDiv = document.createElement('div');
+        gemContentDiv.className = "gem-content_div";
+        gemContentDiv.onclick = function () {
+            changeGemdrop3(this);
+        }
+        const gempic = document.createElement('div');
+        gempic.className = "gempic";
+        const img = document.createElement('img');
+        let gem_text = "../../images/gems/" + Object.keys(gem_list)[i] + ".png";
+        img.src = gem_text;
+        const gemtext1 = document.createElement('div');
+        gemtext1.className = "gemtext1";
+        const p1 = document.createElement('p');
+        p1.innerText = Object.keys(gem_list)[i];
+        const gemtext2 = document.createElement('div');
+        gemtext2.className = "gemtext2";
+        const p2 = document.createElement('p');
+        p2.innerText = gem_list[Object.keys(gem_list)[0]];
+        gemContentDiv.appendChild(gempic);
+        gempic.appendChild(img);
+        gempic.insertAdjacentElement("afterend", gemtext1);
+        gemtext1.appendChild(p1);
+        gemtext1.insertAdjacentElement("afterend", gemtext2);
+        gemtext2.appendChild(p2);
+        dropGem3.insertAdjacentElement("afterend", gemContentDiv);
+    }
+};
+
+// Call the addContent functions after document has loaded
+if (document.readyState !== 'loading') {
+    addContentGem1();
+    addContentGem2();
+    addContentGem3();
+} else {
+    document.addEventListener("DOMContentLoaded", function() {
+        addContentGem1();
+        addContentGem2();
+        addContentGem3();
+    })
+};
 
 

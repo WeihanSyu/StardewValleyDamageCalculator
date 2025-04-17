@@ -1,3 +1,81 @@
+// Place the JSON weapon info that we got from our SQL Server table into a JS object, then into array
+const dagger_obj = JSON.parse('[{"name":"Infinity Dagger","type":1,"minDamage":50,"maxDamage":70,"critChance":0.0599999986588954900,"critPower":0,"speed":1},{"name":"Dragontooth Shiv","type":1,"minDamage":40,"maxDamage":50,"critChance":0.0500000007450580600,"critPower":100,"speed":0},{"name":"Dwarf Dagger","type":1,"minDamage":32,"maxDamage":38,"critChance":0.0299999993294477460,"critPower":0,"speed":1},{"name":"Galaxy Dagger","type":1,"minDamage":30,"maxDamage":40,"critChance":0.0199999995529651640,"critPower":0,"speed":1},{"name":"Elliott\'s Pencil","type":1,"minDamage":24,"maxDamage":30,"critChance":0.0599999986588954900,"critPower":0,"speed":0},{"name":"Abby\'s Planchette","type":1,"minDamage":24,"maxDamage":30,"critChance":0.0599999986588954900,"critPower":0,"speed":0},{"name":"Wicked Kris","type":1,"minDamage":24,"maxDamage":30,"critChance":0.0599999986588954900,"critPower":0,"speed":0},{"name":"Iridium Needle","type":1,"minDamage":20,"maxDamage":35,"critChance":0.1000000014901161200,"critPower":200,"speed":0},{"name":"Broken Trident","type":1,"minDamage":15,"maxDamage":26,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Shadow Dagger","type":1,"minDamage":10,"maxDamage":20,"critChance":0.0399999991059303300,"critPower":0,"speed":0},{"name":"Burglar\'s Shank","type":1,"minDamage":7,"maxDamage":12,"critChance":0.0399999991059303300,"critPower":25,"speed":0},{"name":"Crystal Dagger","type":1,"minDamage":4,"maxDamage":10,"critChance":0.0299999993294477460,"critPower":50,"speed":0},{"name":"Elf Blade","type":1,"minDamage":3,"maxDamage":5,"critChance":0.0399999991059303300,"critPower":0,"speed":0},{"name":"Iron Dirk","type":1,"minDamage":2,"maxDamage":4,"critChance":0.0299999993294477460,"critPower":0,"speed":0},{"name":"Wind Spire","type":1,"minDamage":1,"maxDamage":5,"critChance":0.0199999995529651640,"critPower":10,"speed":0},{"name":"Carving Knife","type":1,"minDamage":1,"maxDamage":3,"critChance":0.0399999991059303300,"critPower":0,"speed":0}]');
+const sword_obj = JSON.parse('[{"name":"Infinity Blade","type":0,"minDamage":80,"maxDamage":100,"critChance":0.0199999995529651640,"critPower":0,"speed":4},{"name":"Dragontooth Cutlass","type":0,"minDamage":75,"maxDamage":90,"critChance":0.0199999995529651640,"critPower":50,"speed":0},{"name":"Dwarf Sword","type":0,"minDamage":65,"maxDamage":75,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Galaxy Sword","type":0,"minDamage":60,"maxDamage":80,"critChance":0.0199999995529651640,"critPower":0,"speed":4},{"name":"Lava Katana","type":0,"minDamage":55,"maxDamage":64,"critChance":0.0149999996647238730,"critPower":25,"speed":0},{"name":"Leah\'s Whittler","type":0,"minDamage":30,"maxDamage":45,"critChance":0.0199999995529651640,"critPower":10,"speed":-1},{"name":"Haley\'s Iron","type":0,"minDamage":30,"maxDamage":45,"critChance":0.0199999995529651640,"critPower":10,"speed":-1},{"name":"Obsidian Edge","type":0,"minDamage":30,"maxDamage":45,"critChance":0.0199999995529651640,"critPower":10,"speed":-1},{"name":"Dark Sword","type":0,"minDamage":30,"maxDamage":45,"critChance":0.0399999991059303300,"critPower":0,"speed":-5},{"name":"Steel Falchion","type":0,"minDamage":28,"maxDamage":46,"critChance":0.0199999995529651640,"critPower":20,"speed":4},{"name":"Tempered Broadsword","type":0,"minDamage":29,"maxDamage":44,"critChance":0.0199999995529651640,"critPower":0,"speed":-3},{"name":"Yeti Tooth","type":0,"minDamage":26,"maxDamage":42,"critChance":0.0199999995529651640,"critPower":10,"speed":0},{"name":"Ossified Blade","type":0,"minDamage":26,"maxDamage":42,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Neptune\'s Glaive","type":3,"minDamage":18,"maxDamage":35,"critChance":0.0199999995529651640,"critPower":0,"speed":-1},{"name":"Claymore","type":3,"minDamage":20,"maxDamage":32,"critChance":0.0199999995529651640,"critPower":0,"speed":-4},{"name":"Templar\'s Blade","type":3,"minDamage":22,"maxDamage":29,"critChance":0.0000000000000000000,"critPower":0,"speed":0},{"name":"Bone Sword","type":0,"minDamage":20,"maxDamage":30,"critChance":0.0199999995529651640,"critPower":0,"speed":4},{"name":"Insect Head","type":0,"minDamage":20,"maxDamage":30,"critChance":0.0399999991059303300,"critPower":0,"speed":2},{"name":"Holy Blade","type":0,"minDamage":20,"maxDamage":27,"critChance":0.0199999995529651640,"critPower":0,"speed":4},{"name":"Rapier","type":0,"minDamage":15,"maxDamage":25,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Meowmere","type":0,"minDamage":20,"maxDamage":20,"critChance":0.0199999995529651640,"critPower":0,"speed":4},{"name":"Iridium Scythe","type":0,"minDamage":20,"maxDamage":20,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Iron Edge","type":3,"minDamage":12,"maxDamage":25,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Forest Sword","type":0,"minDamage":8,"maxDamage":18,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Cutlass","type":0,"minDamage":9,"maxDamage":17,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Golden Scythe","type":0,"minDamage":13,"maxDamage":13,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Pirate\'s Sword","type":3,"minDamage":8,"maxDamage":14,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Silver Saber","type":0,"minDamage":8,"maxDamage":15,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Steel Smallsword","type":0,"minDamage":4,"maxDamage":8,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Wooden Blade","type":0,"minDamage":3,"maxDamage":7,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Rusty Sword","type":3,"minDamage":2,"maxDamage":5,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Scythe","type":0,"minDamage":1,"maxDamage":3,"critChance":0.0199999995529651640,"critPower":0,"speed":0}]');
+const club_obj = JSON.parse('[{"name":"Infinity Gavel","type":2,"minDamage":100,"maxDamage":120,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Dragontooth Club","type":2,"minDamage":80,"maxDamage":100,"critChance":0.0199999995529651640,"critPower":50,"speed":0},{"name":"Dwarf Hammer","type":2,"minDamage":75,"maxDamage":85,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Galaxy Hammer","type":2,"minDamage":70,"maxDamage":90,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Sam\'s Old Guitar","type":2,"minDamage":40,"maxDamage":55,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Alex\'s Bat","type":2,"minDamage":40,"maxDamage":55,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"The Slammer","type":2,"minDamage":40,"maxDamage":55,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Maru\'s Wrench","type":2,"minDamage":40,"maxDamage":55,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Harvey\'s Mallet","type":2,"minDamage":40,"maxDamage":55,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Penny\'s Fryer","type":2,"minDamage":40,"maxDamage":55,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Seb\'s Lost Mace","type":2,"minDamage":40,"maxDamage":55,"critChance":0.0199999995529651640,"critPower":0,"speed":-2},{"name":"Kudgel","type":2,"minDamage":27,"maxDamage":40,"critChance":0.0199999995529651640,"critPower":50,"speed":-1},{"name":"Lead Rod","type":2,"minDamage":18,"maxDamage":27,"critChance":0.0199999995529651640,"critPower":0,"speed":-4},{"name":"Wood Mallet","type":2,"minDamage":15,"maxDamage":24,"critChance":0.0199999995529651640,"critPower":0,"speed":2},{"name":"Wood Club","type":2,"minDamage":9,"maxDamage":16,"critChance":0.0199999995529651640,"critPower":0,"speed":0},{"name":"Femur","type":2,"minDamage":6,"maxDamage":11,"critChance":0.0199999995529651640,"critPower":0,"speed":2}]');
+
+const dagger_list = [[],[],[],[],[],[],[],[]];
+const sword_list = [[],[],[],[],[],[],[],[]];
+const club_list = [[],[],[],[],[],[],[],[]];
+
+for (let i = 0; i < dagger_obj.length; i++) {
+  dagger_list[0][i] = dagger_obj[i]["name"];
+  dagger_list[1][i] = dagger_obj[i]["type"];
+  dagger_list[2][i] = dagger_obj[i]["minDamage"];
+  dagger_list[3][i] = dagger_obj[i]["maxDamage"];
+  dagger_list[4][i] = dagger_obj[i]["critChance"];
+  dagger_list[5][i] = dagger_obj[i]["critPower"];
+  dagger_list[6][i] = dagger_obj[i]["speed"];
+};
+
+for (let i = 0; i < sword_obj.length; i++) {
+  sword_list[0][i] = sword_obj[i]["name"];
+  sword_list[1][i] = sword_obj[i]["type"];
+  sword_list[2][i] = sword_obj[i]["minDamage"];
+  sword_list[3][i] = sword_obj[i]["maxDamage"];
+  sword_list[4][i] = sword_obj[i]["critChance"];
+  sword_list[5][i] = sword_obj[i]["critPower"];
+  sword_list[6][i] = sword_obj[i]["speed"];
+};
+
+for (let i = 0; i < club_obj.length; i++) {
+  club_list[0][i] = club_obj[i]["name"];
+  club_list[1][i] = club_obj[i]["type"];
+  club_list[2][i] = club_obj[i]["minDamage"];
+  club_list[3][i] = club_obj[i]["maxDamage"];
+  club_list[4][i] = club_obj[i]["critChance"];
+  club_list[5][i] = club_obj[i]["critPower"];
+  club_list[6][i] = club_obj[i]["speed"];
+};
+
+// Fill in default_dps
+const all_weapons = [dagger_list, sword_list, club_list];
+for (let i = 0; i < 3; i++) {
+    if (i == 0) {
+        var len = dagger_list.length;
+    } else if (i == 1) {
+        var len = sword_list.length;
+    } else {
+        var len = club_list.length;
+    }
+    for (let j = 0; j < len; j++) {
+        var minDamage = all_weapons[i][2][j];
+        var maxDamage = all_weapons[i][3][j];
+        var critC = all_weapons[i][4][j];
+        var critP = all_weapons[i][5][j];
+        var speed = all_weapons[i][6][j];
+        var crit_min = minDamage * (3 + critP/50);
+        var crit_max = maxDamage * (3 + critP/50);
+        var final_damage_min = ( (crit_min - minDamage) * critC ) + minDamage;
+        var final_damage_max = ( (crit_max - maxDamage) * critC ) + maxDamage;
+
+        if (i == 0) {
+            var aps = 1000 / (125 + (speed * -40));
+            if (aps > 8) {
+                aps = 8;
+            }
+            dagger_list[7][j] = (final_damage_min + final_damage_max) / 2 * aps; 
+        } else if (i == 1) {
+            aps = 1000 / (400 + (speed * -40));
+            sword_list[7][j] = (final_damage_min + final_damage_max) / 2 * aps; 
+        } else {
+            aps = 1000 / (720 + (speed * -40));
+            club_list[7][j] = (final_damage_min + final_damage_max) / 2 * aps; 
+        }
+    }
+};
+
+
+
 /* When the user clicks on the Main Dropdown button,
 toggle between hiding and showing the dropdown content */
 function showMainDropdown() {
@@ -262,13 +340,15 @@ function highlightClub() {
 }
 
 
-// Looping the DOM creating div elements in JavaScript to display data
-if (document.readyState !== 'loading') {
+// Add functions to loop DOM and create div elements based on weapon_list values
+function addContentDagger() {
   const dropDagger = document.querySelector(".dropdown-content_dagger");
-
   for (let i = 0; i < dagger_list[0].length; i++) {
     const dropContentTextDiv = document.createElement('div');
     dropContentTextDiv.className = "dropdown-content_text_div";
+    dropContentTextDiv.onclick = function () {
+      changeDropdownName(this);
+    }
 
     const dropContentText1 = document.createElement('p');
     dropContentText1.className = "dropdown-content_text1";
@@ -282,43 +362,65 @@ if (document.readyState !== 'loading') {
 
     dropDagger.appendChild(dropContentTextDiv);
   }
+}
+
+function addContentSword() {
+  const dropSword = document.querySelector(".dropdown-content_sword");
+  for (let i = 0; i < sword_list[0].length; i++) {
+    const dropContentTextDiv = document.createElement('div');
+    dropContentTextDiv.className = "dropdown-content_text_div";
+    dropContentTextDiv.onclick = function () {
+      changeDropdownName(this);
+    }
+
+    const dropContentText1 = document.createElement('p');
+    dropContentText1.className = "dropdown-content_text1";
+    dropContentText1.innerText = sword_list[0][i];
+    dropContentTextDiv.appendChild(dropContentText1);
+
+    const dropContentText2 = document.createElement('p');
+    dropContentText2.className = "dropdown-content_text2";
+    dropContentText2.innerText = sword_list[2][i] + '-' + sword_list[3][i];
+    dropContentText1.insertAdjacentElement("afterend", dropContentText2);
+
+    dropSword.appendChild(dropContentTextDiv);
+  }
+}
+
+function addContentClub() {
+  const dropClub = document.querySelector(".dropdown-content_club");
+  for (let i = 0; i < club_list[0].length; i++) {
+    const dropContentTextDiv = document.createElement('div');
+    dropContentTextDiv.className = "dropdown-content_text_div";
+    dropContentTextDiv.onclick = function () {
+      changeDropdownName(this);
+    }
+
+    const dropContentText1 = document.createElement('p');
+    dropContentText1.className = "dropdown-content_text1";
+    dropContentText1.innerText = club_list[0][i];
+    dropContentTextDiv.appendChild(dropContentText1);
+
+    const dropContentText2 = document.createElement('p');
+    dropContentText2.className = "dropdown-content_text2";
+    dropContentText2.innerText = club_list[2][i] + '-' + club_list[3][i];
+    dropContentText1.insertAdjacentElement("afterend", dropContentText2);
+
+    dropClub.appendChild(dropContentTextDiv);
+  }
+}
+
+// Call the addContent functions after document has loaded
+if (document.readyState !== 'loading') {
+  addContentDagger();
+  addContentSword();
+  addContentClub();
 } else {
   document.addEventListener("DOMContentLoaded", function() {
-    const dropDagger = document.querySelector(".dropdown-content_dagger");
-  
-    for (let i = 0; i < dagger_list[0].length; i++) {
-      const dropContentTextDiv = document.createElement('div');
-      dropContentTextDiv.className = "dropdown-content_text_div";
-  
-      const dropContentText1 = document.createElement('p');
-      dropContentText1.className = "dropdown-content_text1";
-      dropContentText1.innerText = dagger_list[0][i];
-      dropContentTextDiv.appendChild(dropContentText1);
-  
-      const dropContentText2 = document.createElement('p');
-      dropContentText2.className = "dropdown-content_text2";
-      dropContentText2.innerText = dagger_list[2][i] + '-' + dagger_list[3][i];
-      dropContentText1.insertAdjacentElement("afterend", dropContentText2);
-  
-      dropDagger.appendChild(dropContentTextDiv);
-    }
+    addContentDagger();
+    addContentSword();
+    addContentClub();
   })
 }
 
-
-  
-
-
-
-  
-
-
-
-/*
-if (document.querySelector(".dropbtn").innerText.includes("Rusty Sword")) {
-  alert("Yes it does");
-} else {
-  alert("nope");
-}
-*/
 
