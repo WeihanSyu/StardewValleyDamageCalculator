@@ -29,14 +29,7 @@
     </head>
 
     <body>  
-        <?php
-            $innate_list = array(
-                "Attack" => array("+1", "+2", "+3", "+4", "+5"),
-                "Crit. Power" => array("+25", "+50", "+75"),
-                "Crit. Chance" => array("+1", "+2", "+3"),
-                "Speed" => array("+1", "+2", "+3", "+4")
-            );
-        ?>
+        
 
         <?php 
             $ring_list = array(
@@ -156,69 +149,17 @@
                                     <p>No Enchantment</p>
                                 </div>
                             </div>
-                            <div class="innate-content_div2">
-                                <div class="innatetext1">
-                                    <p>
-                                        <?php echo array_keys($innate_list)[0]; ?>
-                                    </p>
-                                </div>
-                                <div class="innatetext2">
-                                <?php foreach($innate_list["Attack"] as $attack):?>
-                                    <div onclick="changeInnatedrop(this)">
-                                        <p>
-                                            <?php echo $attack; ?>
-                                        </p>
-                                    </div>
-                                <?php endforeach;?>
-                                </div>
+                            <div id="attack" class="innate-content_div2">
+                                
                             </div>
-                            <div class="innate-content_div2">
-                                <div class="innatetext1">
-                                    <p>
-                                        <?php echo array_keys($innate_list)[1]; ?>
-                                    </p>
-                                </div>
-                                <div class="innatetext2">
-                                <?php foreach($innate_list["Crit. Power"] as $critpower):?>
-                                    <div onclick="changeInnatedrop(this)">
-                                        <p>
-                                            <?php echo $critpower; ?>
-                                        </p>
-                                    </div>
-                                <?php endforeach;?>
-                                </div>
+                            <div id="critPower" class="innate-content_div2">
+                                
                             </div>
-                            <div class="innate-content_div2">
-                                <div class="innatetext1">
-                                    <p>
-                                        <?php echo array_keys($innate_list)[2]; ?>
-                                    </p>
-                                </div>
-                                <div class="innatetext2">
-                                <?php foreach($innate_list["Crit. Chance"] as $critchance):?>
-                                    <div onclick="changeInnatedrop(this)">
-                                        <p>
-                                            <?php echo $critchance; ?>
-                                        </p>
-                                    </div>
-                                <?php endforeach;?>
-                                </div>
+                            <div id="critChance" class="innate-content_div2">
+                                
                             </div>
-                            <div class="innate-content_div2">
-                                <div class="innatetext1">
-                                    <p>
-                                        <?php echo array_keys($innate_list)[3]; ?>
-                                    </p>
-                                </div>
-                                <div class="innatetext2">
-                                <?php foreach($innate_list["Speed"] as $speed):?>
-                                    <div onclick="changeInnatedrop(this)">
-                                        <p>
-                                            <?php echo $speed; ?>
-                                        </p>
-                                    </div>
-                                <?php endforeach;?>
-                                </div>
+                            <div id="speed" class="innate-content_div2">
+                                
                             </div>
                         </div>
                     </div>

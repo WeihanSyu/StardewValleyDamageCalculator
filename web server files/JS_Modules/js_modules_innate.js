@@ -1,3 +1,12 @@
+// Create Global innate_list array
+const innate_list = {
+  "Attack": ["+1", "+2", "+3", "+4", "+5"], 
+  "Crit. Power": ["+25", "+50", "+75"], 
+  "Crit. Chance": ["+1", "+2", "+3"], 
+  "Speed": ["+1", "+2", "+3", "+4"]
+};
+
+
 // Add function to show the innate enchantment dropdown menu upon click
 function showInnateDropdown() {
     let wep_name = document.querySelector(".dropbtn").innerText;
@@ -35,7 +44,8 @@ function changeInnatedrop(elem) {
     if (elem.getAttribute("class") == "innate-content_div1") {
         btn.innerText = elem.innerText;
     } else {
-        var innate_type = elem.parentNode.previousSibling.previousSibling.innerText;
+        // Somehow innatetext1 is appearing AFTER innatetext2. Probably to do with appendChild 
+        var innate_type = elem.parentNode.nextSibling.innerText; 
         btn.innerText = innate_type + ": " + elem.innerText;
 
         // Assign innate values to our innate global variables for results section
@@ -161,3 +171,131 @@ function changeInnatedrop(elem) {
     results_dps.innerText = "Dps (Dmg/s): " + damage_per_second;
 };
 
+
+// Add functions to loop DOM and create elements based on innate_list values
+function addContentInnateAttack () {
+  const innateContentDiv2 = document.getElementById("attack");
+  const innatetext1 = document.createElement('div');
+  innatetext1.className = "innatetext1";
+
+  const p1 = document.createElement('p');
+  p1.innerText = Object.keys(innate_list)[0];
+
+  const innatetext2 = document.createElement('div');
+  innatetext2.className = "innatetext2";
+
+  for (let i = 0; i < innate_list["Attack"].length; i++) {
+    const div1 = document.createElement('div');
+    div1.onclick = function() {
+      changeInnatedrop(this);
+    }
+    const p2 = document.createElement('p');
+    p2.innerText = innate_list["Attack"][i];
+
+    div1.appendChild(p2);
+    innatetext2.appendChild(div1);
+  } 
+
+  innatetext1.appendChild(p1);
+  innateContentDiv2.appendChild(innatetext2);
+  innateContentDiv2.appendChild(innatetext1);
+}
+
+function addContentInnateCritPower () {
+  const innateContentDiv2 = document.getElementById("critPower");
+  const innatetext1 = document.createElement('div');
+  innatetext1.className = "innatetext1";
+
+  const p1 = document.createElement('p');
+  p1.innerText = Object.keys(innate_list)[1];
+
+  const innatetext2 = document.createElement('div');
+  innatetext2.className = "innatetext2";
+
+  for (let i = 0; i < innate_list["Crit. Power"].length; i++) {
+    const div1 = document.createElement('div');
+    div1.onclick = function() {
+      changeInnatedrop(this);
+    }
+    const p2 = document.createElement('p');
+    p2.innerText = innate_list["Crit. Power"][i];
+
+    div1.appendChild(p2);
+    innatetext2.appendChild(div1);
+  }
+
+  innatetext1.appendChild(p1);
+  innateContentDiv2.appendChild(innatetext2);
+  innateContentDiv2.appendChild(innatetext1);
+}
+
+function addContentInnateCritChance () {
+  const innateContentDiv2 = document.getElementById("critChance");
+  const innatetext1 = document.createElement('div');
+  innatetext1.className = "innatetext1";
+
+  const p1 = document.createElement('p');
+  p1.innerText = Object.keys(innate_list)[2];
+
+  const innatetext2 = document.createElement('div');
+  innatetext2.className = "innatetext2";
+
+  for (let i = 0; i < innate_list["Crit. Chance"].length; i++) {
+    const div1 = document.createElement('div');
+    div1.onclick = function() {
+      changeInnatedrop(this);
+    }
+    const p2 = document.createElement('p');
+    p2.innerText = innate_list["Crit. Chance"][i];
+
+    div1.appendChild(p2);
+    innatetext2.appendChild(div1);
+  }
+
+  innatetext1.appendChild(p1);
+  innateContentDiv2.appendChild(innatetext2);
+  innateContentDiv2.appendChild(innatetext1);
+}
+
+function addContentInnateSpeed () {
+  const innateContentDiv2 = document.getElementById("speed");
+  const innatetext1 = document.createElement('div');
+  innatetext1.className = "innatetext1";
+
+  const p1 = document.createElement('p');
+  p1.innerText = Object.keys(innate_list)[3];
+
+  const innatetext2 = document.createElement('div');
+  innatetext2.className = "innatetext2";
+
+  for (let i = 0; i < innate_list["Speed"].length; i++) {
+    const div1 = document.createElement('div');
+    div1.onclick = function() {
+      changeInnatedrop(this);
+    }
+    const p2 = document.createElement('p');
+    p2.innerText = innate_list["Speed"][i];
+
+    div1.appendChild(p2);
+    innatetext2.appendChild(div1);
+  }
+
+  innatetext1.appendChild(p1);
+  innateContentDiv2.appendChild(innatetext2);
+  innateContentDiv2.appendChild(innatetext1);
+}
+
+// Call the addContent functions after document has loaded
+if (document.readyState !== 'loading') {
+  addContentInnateAttack();
+  addContentInnateCritPower();
+  addContentInnateCritChance();
+  addContentInnateSpeed();
+} else {
+  document.addEventListener("DOMContentLoaded", function() {
+    addContentInnateAttack();
+    addContentInnateCritPower();
+    addContentInnateCritChance();
+    addContentInnateSpeed();
+  })
+};

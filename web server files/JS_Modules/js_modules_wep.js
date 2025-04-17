@@ -340,7 +340,7 @@ function highlightClub() {
 }
 
 
-// Add functions to loop DOM and create div elements based on weapon_list values
+// Add functions to loop DOM and create elements based on weapon_list values
 function addContentDagger() {
   const dropDagger = document.querySelector(".dropdown-content_dagger");
   for (let i = 0; i < dagger_list[0].length; i++) {
