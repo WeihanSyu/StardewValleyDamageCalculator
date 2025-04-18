@@ -28,7 +28,7 @@
 
     </head>
 
-    <body>  
+    <body id="bg-page">  
         
         <div class="div1">
 
