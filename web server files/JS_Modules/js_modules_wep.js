@@ -42,13 +42,10 @@ const all_weapons = [dagger_list, sword_list, club_list];
 for (let i = 0; i < 3; i++) {
     if (i == 0) {
         var len = dagger_list[0].length;
-        console.log(len);
     } else if (i == 1) {
         var len = sword_list[0].length;
-        console.log(len);
     } else {
         var len = club_list[0].length;
-        console.log(len);
     }
     for (let j = 0; j < len; j++) {
         var minDamage = all_weapons[i][2][j];
