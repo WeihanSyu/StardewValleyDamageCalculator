@@ -737,7 +737,7 @@ function addContentRing1() {
         ringpic.className = "ringpic";
 
         const img = document.createElement('img');
-        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        let ring_text = "../images/rings/" + Object.keys(ring_list)[i] + ".png";
         img.src = ring_text;
 
         const ringtext1 = document.createElement('div');
@@ -774,7 +774,7 @@ function addContentRing2() {
         const ringpic = document.createElement('div');
         ringpic.className = "ringpic";
         const img = document.createElement('img');
-        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        let ring_text = "../images/rings/" + Object.keys(ring_list)[i] + ".png";
         img.src = ring_text;
         const ringtext1 = document.createElement('div');
         ringtext1.className = "ringtext1";
@@ -805,7 +805,7 @@ function addContentRing3() {
         const ringpic = document.createElement('div');
         ringpic.className = "ringpic";
         const img = document.createElement('img');
-        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        let ring_text = "../images/rings/" + Object.keys(ring_list)[i] + ".png";
         img.src = ring_text;
         const ringtext1 = document.createElement('div');
         ringtext1.className = "ringtext1";
@@ -836,7 +836,7 @@ function addContentRing4() {
         const ringpic = document.createElement('div');
         ringpic.className = "ringpic";
         const img = document.createElement('img');
-        let ring_text = "../../images/rings/" + Object.keys(ring_list)[i] + ".png";
+        let ring_text = "../images/rings/" + Object.keys(ring_list)[i] + ".png";
         img.src = ring_text;
         const ringtext1 = document.createElement('div');
         ringtext1.className = "ringtext1";

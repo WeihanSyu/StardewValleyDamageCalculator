@@ -570,7 +570,7 @@ function addContentGem1() {
         gempic.className = "gempic";
 
         const img = document.createElement('img');
-        let gem_text = "../../images/gems/" + Object.keys(gem_list)[i] + ".png";
+        let gem_text = "../images/gems/" + Object.keys(gem_list)[i] + ".png";
         img.src = gem_text;
 
         const gemtext1 = document.createElement('div');
@@ -607,7 +607,7 @@ function addContentGem2() {
         const gempic = document.createElement('div');
         gempic.className = "gempic";
         const img = document.createElement('img');
-        let gem_text = "../../images/gems/" + Object.keys(gem_list)[i] + ".png";
+        let gem_text = "../images/gems/" + Object.keys(gem_list)[i] + ".png";
         img.src = gem_text;
         const gemtext1 = document.createElement('div');
         gemtext1.className = "gemtext1";
@@ -638,7 +638,7 @@ function addContentGem3() {
         const gempic = document.createElement('div');
         gempic.className = "gempic";
         const img = document.createElement('img');
-        let gem_text = "../../images/gems/" + Object.keys(gem_list)[i] + ".png";
+        let gem_text = "../images/gems/" + Object.keys(gem_list)[i] + ".png";
         img.src = gem_text;
         const gemtext1 = document.createElement('div');
         gemtext1.className = "gemtext1";
