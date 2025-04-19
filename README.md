@@ -2,6 +2,7 @@
 ## Summary 
 * Created a web app to calculate and display the weapon damage stats from the game "Stardew Valley" based on the bonuses that a user selects.
 * The website can be accessed here [Stardew Valley Weapon Damage Calculator](https://weihansyu.github.io/StardewValleyDamageCalculator/web%20server%20files/)
+![Image](https://github.com/user-attachments/assets/98195aa9-e0a2-4c92-8c13-6838643426c6)
 
 ## Note regarding branches and changing weapon data
 * The **master** branch contains the project built on a PHP file which collects data from a SQL Server backend during runtime to get weapon info.
