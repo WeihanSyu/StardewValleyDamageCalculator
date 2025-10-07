@@ -182,6 +182,32 @@ weapon type displayed EVERY time we click the MAIN dropdown. */
 function highlightMain() {
   let weapon = document.querySelector(".dropbtn").innerText;
   if (dagger_list[0].includes(weapon)) {
+    x.classList.add('focus');
+    y.classList.remove('focus');
+    z.classList.remove('focus');
+    a.classList.add('show');
+    b.classList.remove('show');
+    c.classList.remove('show');
+  } else if (sword_list[0].includes(weapon)) {
+    y.classList.add('focus');
+    x.classList.remove('focus');
+    z.classList.remove('focus');
+    a.classList.remove('show');
+    b.classList.add('show');
+    c.classList.remove('show');
+  } else if (club_list[0].includes(weapon)) {
+    z.classList.add('focus');
+    x.classList.remove('focus');
+    y.classList.remove('focus');
+    a.classList.remove('show');
+    b.classList.remove('show');
+    c.classList.add('show');
+  }
+}
+/* Old way using 'toggle' which is more cumbersome then 'add'.
+function highlightMain() {
+  let weapon = document.querySelector(".dropbtn").innerText;
+  if (dagger_list[0].includes(weapon)) {
     if (!x.classList.contains('focus')) {
       x.classList.toggle('focus');
       y.classList.remove('focus');
@@ -216,6 +242,7 @@ function highlightMain() {
     }
   }
 }
+*/
 
 /* Change Sub Dropdown highlight to whatever is clicked,
 and show Sub Dropdown contents at the same time. */
@@ -260,8 +287,7 @@ function highlightClub() {
     a.classList.remove('show');
   }
 }
-
-
+// Note: Quicker to use "add" isntead of "toggle"
 
 /*
 if (document.querySelector(".dropbtn").innerText.includes("Rusty Sword")) {
